@@ -1,0 +1,6 @@
+<apex:page standardController="Contact">
+    <div><apex:outputField label="First Name" value="{!Contact.FirstName}"/></div>
+    <div><apex:outputField label="Last Name" value="{!Contact.LastName}"/></div>
+    <div><apex:outputField label="Owner Email" value="{!Contact.Owner.Email}"/></div>
+    <apex:detail />
+</apex:page>

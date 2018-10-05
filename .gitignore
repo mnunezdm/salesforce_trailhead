@@ -1,0 +1,14 @@
+# cicd
+
+describe.log
+srcToDeploy
+*-build.xml
+artifacts_folder
+
+# workspace
+
+.forceCode
+.sfdx
+.vscode
+soql
+force.json

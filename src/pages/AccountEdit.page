@@ -1,0 +1,15 @@
+<apex:page standardController="Account" docType="html-5.0">
+    
+    <apex:slds />
+    
+    <div class="slds-scope">
+        <h1>Edit Account</h1>
+        <apex:form >
+            
+            <apex:inputField type="text" value="{! Account.Name }" styleClass="slds-input slds-m-vertical_medium" style="width: 200px"/>
+            
+            <apex:commandButton action="{! save }" value="Save" styleClass="slds-button slds-button_brand"/>
+            
+        </apex:form>
+    </div>
+</apex:page>

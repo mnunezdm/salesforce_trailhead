@@ -1,0 +1,28 @@
+<apex:page >
+    
+    <style>
+        .container {
+            -webkit-column-count: 4;
+            -moz-column-count: 4;
+            column-count: 4;
+            
+            -webkit-column-gap: 20px;
+            -moz-column-gap: 20px;
+            column-gap: 20px;
+        }
+    </style>
+    <div class="container">
+        <p>This is paragraph 1. Lorem ipsum ... </p>
+        <p>This is paragraph 2. Lorem ipsum ... </p>
+        <p>This is paragraph 3. Lorem ipsum ... </p>
+        <p>This is paragraph 4. Lorem ipsum ... </p>
+        <p>This is paragraph 5. Lorem ipsum ... </p>
+        <p>This is paragraph 6. Lorem ipsum ... </p>
+        <p>This is paragraph 7. Lorem ipsum ... </p>
+        <p>This is paragraph 8. Lorem ipsum ... </p>
+        <p>This is paragraph 9. Lorem ipsum ... </p>
+        <p>This is paragraph 10. Lorem ipsum ... </p>
+        <p>This is paragraph 11. Lorem ipsum ... </p>
+        <p>This is paragraph 12. Lorem ipsum ... </p>
+    </div>
+</apex:page>
