@@ -134,6 +134,7 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Energy Audit Name</label>
         <type>Text</type>
     </nameField>

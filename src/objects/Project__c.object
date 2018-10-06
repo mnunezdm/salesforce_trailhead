@@ -84,6 +84,7 @@
     <gender>Feminine</gender>
     <label>Project</label>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Project Name</label>
         <type>Text</type>
     </nameField>

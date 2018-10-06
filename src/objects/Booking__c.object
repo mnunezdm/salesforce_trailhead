@@ -89,6 +89,7 @@
     <gender>Masculine</gender>
     <label>Booking</label>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Booking Name</label>
         <type>Text</type>
     </nameField>

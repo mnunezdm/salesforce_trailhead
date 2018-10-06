@@ -71,6 +71,7 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Sector Name</label>
         <type>Text</type>
     </nameField>

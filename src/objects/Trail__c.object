@@ -90,6 +90,7 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Trail Name</label>
         <type>Text</type>
     </nameField>

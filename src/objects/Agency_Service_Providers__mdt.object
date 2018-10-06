@@ -15,7 +15,6 @@
     </fields>
     <fields>
         <fullName>Agency_Owner_Email__c</fullName>
-        <encrypted>false</encrypted>
         <externalId>false</externalId>
         <fieldManageability>DeveloperControlled</fieldManageability>
         <label>Agency Owner Email</label>

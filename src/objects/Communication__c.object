@@ -334,6 +334,7 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Communication Name</label>
         <type>Text</type>
     </nameField>
