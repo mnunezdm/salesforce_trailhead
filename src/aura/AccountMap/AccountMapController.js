@@ -1,6 +1,6 @@
 ({
     jsLoaded: function(component, event, helper) {
-        var map = L.map('map', {zoomControl: false, tap: false}).setView([37.784173, -122.401557], 14);
+        var map = L.map('map', {zoomControl: false}).setView([37.784173, -122.401557], 14);
         L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
             {
                 attribution: 'Tiles © Esri'
@@ -14,7 +14,10 @@
         for (var i=0; i<accounts.length; i++) {
             var account = accounts[i];
             var latLng = [account.Location__Latitude__s, account.Location__Longitude__s];
-            L.marker(latLng, {account: account}).addTo(map);
+            L.marker(latLng, {account: account}).addTo(map).on('click', function(event) {
+                console.log(event)
+                helper.navigateToDetailsView(event.target.options.account.Id);
+            });
         }
     },
     accountSelected: function(component, event, helper) {
