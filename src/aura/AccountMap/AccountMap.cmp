@@ -2,6 +2,7 @@
 
     <aura:attribute name="map" type="Object"/>
     <aura:handler event="c:AccountsLoaded" action="{!c.accountsLoaded}"/>
+    <aura:handler event="c:AccountSelected" action="{!c.accountSelected}"/>
 
     <ltng:require styles="/resource/leaflet/leaflet.css"
         scripts="/resource/leaflet/leaflet.js"

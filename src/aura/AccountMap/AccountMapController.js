@@ -16,5 +16,11 @@
             var latLng = [account.Location__Latitude__s, account.Location__Longitude__s];
             L.marker(latLng, {account: account}).addTo(map);
         }
+    },
+    accountSelected: function(component, event, helper) {
+        // Center the map on the account selected in the list
+        var map = component.get('v.map');
+        var account = event.getParam("account");
+        map.panTo([account.Location__Latitude__s, account.Location__Longitude__s]);
     }
 })
