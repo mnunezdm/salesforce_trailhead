@@ -12,3 +12,4 @@ artifacts_folder
 .vscode
 soql
 force.json
+**/coverage/**/*
