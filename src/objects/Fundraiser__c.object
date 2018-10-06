@@ -60,6 +60,7 @@
         <label>Todos</label>
     </listViews>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Nombre de Fundraiser</label>
         <trackFeedHistory>true</trackFeedHistory>
         <type>Text</type>

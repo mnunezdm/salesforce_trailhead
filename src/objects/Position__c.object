@@ -66,6 +66,7 @@
     <gender>Feminine</gender>
     <label>Position</label>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Position Name</label>
         <type>Text</type>
     </nameField>

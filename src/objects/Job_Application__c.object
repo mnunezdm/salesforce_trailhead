@@ -55,6 +55,7 @@
     <gender>Feminine</gender>
     <label>Job Application</label>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Job Application Name</label>
         <type>Text</type>
     </nameField>

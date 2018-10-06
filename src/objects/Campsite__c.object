@@ -70,6 +70,7 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Campsite Name</label>
         <type>Text</type>
     </nameField>

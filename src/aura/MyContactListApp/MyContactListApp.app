@@ -1,3 +1,3 @@
 <aura:application >
-	<c:MyContactList />
+    <c:AccountLocator/>
 </aura:application>

@@ -79,6 +79,7 @@
     <gender>Feminine</gender>
     <label>Vacation Package</label>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Vacation Package Name</label>
         <type>Text</type>
     </nameField>

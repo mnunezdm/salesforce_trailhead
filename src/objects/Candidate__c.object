@@ -98,6 +98,7 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Object Name</label>
         <type>Text</type>
     </nameField>

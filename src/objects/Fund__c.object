@@ -146,6 +146,7 @@
         <label>All</label>
     </listViews>
     <nameField>
+        <encrypted>false</encrypted>
         <label>Fund Name</label>
         <type>Text</type>
     </nameField>
