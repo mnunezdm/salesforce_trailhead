@@ -115,6 +115,14 @@
     </types>
     <types>
         <members>*</members>
+        <name>FlexiPage</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>InstalledPackage</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>StaticResource</name>
     </types>
     <version>43.0</version>
