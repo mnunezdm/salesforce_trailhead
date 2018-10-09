@@ -61,4 +61,9 @@
         <default>false</default>
         <label>Other</label>
     </standardValue>
+    <standardValue>
+        <fullName>Dev Class</fullName>
+        <default>false</default>
+        <label>Dev Class</label>
+    </standardValue>
 </StandardValueSet>
