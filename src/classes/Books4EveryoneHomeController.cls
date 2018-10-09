@@ -21,5 +21,12 @@ public with sharing class Books4EveryoneHomeController {
                 WHERE Book__c != null
                 LIMIT 10];
     }
+
+    @AuraEnabled
+    public static List<Book__c> getBooksWithoutAuthors(){
+    return [SELECT Name
+            FROM Book__c
+            WHERE Author__c = null
+            LIMIT 10];
     }
 }
