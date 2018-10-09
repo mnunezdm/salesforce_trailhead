@@ -119,11 +119,19 @@
     </types>
     <types>
         <members>*</members>
+        <name>Flow</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>InstalledPackage</name>
     </types>
     <types>
         <members>*</members>
         <name>StaticResource</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Workflow</name>
     </types>
     <version>43.0</version>
 </Package>
