@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>Book_Record_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Author__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Author</label>
+        <referenceTo>Author__c</referenceTo>
+        <relationshipLabel>Books</relationshipLabel>
+        <relationshipName>Books</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Description__c</fullName>
+        <encrypted>false</encrypted>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Genre__c</fullName>
+        <externalId>false</externalId>
+        <label>Genre</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Classic</fullName>
+                    <default>false</default>
+                    <label>Classic</label>
+                </value>
+                <value>
+                    <fullName>Crime</fullName>
+                    <default>false</default>
+                    <label>Crime</label>
+                </value>
+                <value>
+                    <fullName>Fable </fullName>
+                    <default>false</default>
+                    <label>Fable </label>
+                </value>
+                <value>
+                    <fullName>Fairy tale </fullName>
+                    <default>false</default>
+                    <label>Fairy tale </label>
+                </value>
+                <value>
+                    <fullName>Fantasy</fullName>
+                    <default>false</default>
+                    <label>Fantasy</label>
+                </value>
+                <value>
+                    <fullName>Folklore </fullName>
+                    <default>false</default>
+                    <label>Folklore </label>
+                </value>
+                <value>
+                    <fullName>Historical fiction</fullName>
+                    <default>false</default>
+                    <label>Historical fiction</label>
+                </value>
+                <value>
+                    <fullName>Horror </fullName>
+                    <default>false</default>
+                    <label>Horror </label>
+                </value>
+                <value>
+                    <fullName>Humor</fullName>
+                    <default>false</default>
+                    <label>Humor</label>
+                </value>
+                <value>
+                    <fullName>Legend </fullName>
+                    <default>false</default>
+                    <label>Legend </label>
+                </value>
+                <value>
+                    <fullName>Magical realism </fullName>
+                    <default>false</default>
+                    <label>Magical realism </label>
+                </value>
+                <value>
+                    <fullName>Mystery </fullName>
+                    <default>false</default>
+                    <label>Mystery </label>
+                </value>
+                <value>
+                    <fullName>Mythology </fullName>
+                    <default>false</default>
+                    <label>Mythology </label>
+                </value>
+                <value>
+                    <fullName>Picture book </fullName>
+                    <default>false</default>
+                    <label>Picture book </label>
+                </value>
+                <value>
+                    <fullName>Realistic fiction</fullName>
+                    <default>false</default>
+                    <label>Realistic fiction</label>
+                </value>
+                <value>
+                    <fullName>Science fiction </fullName>
+                    <default>false</default>
+                    <label>Science fiction </label>
+                </value>
+                <value>
+                    <fullName>Short story </fullName>
+                    <default>false</default>
+                    <label>Short story </label>
+                </value>
+                <value>
+                    <fullName>Suspense</fullName>
+                    <default>false</default>
+                    <label>Suspense</label>
+                </value>
+                <value>
+                    <fullName>Thriller </fullName>
+                    <default>false</default>
+                    <label>Thriller </label>
+                </value>
+                <value>
+                    <fullName>Tall tale </fullName>
+                    <default>false</default>
+                    <label>Tall tale </label>
+                </value>
+                <value>
+                    <fullName>Western </fullName>
+                    <default>false</default>
+                    <label>Western </label>
+                </value>
+                <value>
+                    <fullName>Biography </fullName>
+                    <default>false</default>
+                    <label>Biography </label>
+                </value>
+                <value>
+                    <fullName>Autobiography</fullName>
+                    <default>false</default>
+                    <label>Autobiography</label>
+                </value>
+                <value>
+                    <fullName>Essay  </fullName>
+                    <default>false</default>
+                    <label>Essay  </label>
+                </value>
+                <value>
+                    <fullName>Owner&apos;s manual </fullName>
+                    <default>false</default>
+                    <label>Owner&apos;s manual </label>
+                </value>
+                <value>
+                    <fullName>Journalism </fullName>
+                    <default>false</default>
+                    <label>Journalism </label>
+                </value>
+                <value>
+                    <fullName>Lab Report  </fullName>
+                    <default>false</default>
+                    <label>Lab Report  </label>
+                </value>
+                <value>
+                    <fullName>Memoir  </fullName>
+                    <default>false</default>
+                    <label>Memoir  </label>
+                </value>
+                <value>
+                    <fullName>Narrative nonfiction</fullName>
+                    <default>false</default>
+                    <label>Narrative nonfiction</label>
+                </value>
+                <value>
+                    <fullName>Reference book  </fullName>
+                    <default>false</default>
+                    <label>Reference book  </label>
+                </value>
+                <value>
+                    <fullName>Self-help book  </fullName>
+                    <default>false</default>
+                    <label>Self-help book  </label>
+                </value>
+                <value>
+                    <fullName>Speech  </fullName>
+                    <default>false</default>
+                    <label>Speech  </label>
+                </value>
+                <value>
+                    <fullName>Textbook  </fullName>
+                    <default>false</default>
+                    <label>Textbook  </label>
+                </value>
+                <value>
+                    <fullName>Adventure</fullName>
+                    <default>false</default>
+                    <label>Adventure</label>
+                </value>
+                <value>
+                    <fullName>Drama</fullName>
+                    <default>false</default>
+                    <label>Drama</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <label>Book</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <encrypted>false</encrypted>
+        <label>Book Name</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Books</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>
