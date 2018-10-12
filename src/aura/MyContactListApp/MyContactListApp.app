@@ -1,3 +1,1 @@
-<aura:application >
-    <c:AccountLocator/>
-</aura:application>
+<aura:application extends="force:slds"> </aura:application>
