@@ -11,7 +11,7 @@
         <!-- Import the Design System style sheet -->
         <apex:slds />
     </head>
-    <apex:remoteObjects>
+    <apex:remoteObjects >
         <apex:remoteObjectModel name="Contact" fields="Id,Name,Title,LastModifiedDate,PhotoUrl" />
     </apex:remoteObjects>
 
