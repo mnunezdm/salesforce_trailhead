@@ -1,4 +1,4 @@
-<aura:component controller="AccountController">
+<aura:component controller="AccountsController">
 
     <aura:registerEvent name="accountsLoaded" type="c:AccountsLoaded"/>
     <aura:attribute name="accounts" type="Account[]"/>
