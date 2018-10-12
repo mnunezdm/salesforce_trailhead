@@ -2,39 +2,34 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <deploymentStatus>Deployed</deploymentStatus>
     <fields>
-        <fullName>Start_Location_Lat__c</fullName>
-        <label>Start Location Latitude</label>
-        <required>false</required>
-        <type>Number</type>
-        <scale>4</scale>
-        <precision>7</precision>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Start_Location_Long__c</fullName>
-        <label> Start Location Longitude</label>
-        <scale>4</scale>
-        <precision>7</precision>
-        <required>false</required>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Start_Time__c</fullName>
-        <label>Start Time</label>
-        <required>true</required>
-        <type>DateTime</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>End_Time__c</fullName>
+        <externalId>false</externalId>
         <label>End Time</label>
         <required>false</required>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Rider_Account__c</fullName>
+        <externalId>false</externalId>
+        <label>Rider Account</label>
+        <length>16</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rider_Rating__c</fullName>
+        <externalId>false</externalId>
+        <label>Rider Rating</label>
+        <precision>2</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
         <fullName>Service_Type__c</fullName>
+        <externalId>false</externalId>
         <label>Service Type</label>
         <length>16</length>
         <required>false</required>
@@ -42,24 +37,34 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Rider_Account__c</fullName>
-        <label>Rider Account</label>
-        <length>16</length>
-        <required>true</required>
-        <type>Text</type>
+        <fullName>Start_Location_Lat__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Location Latitude</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>4</scale>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Rider_Rating__c</fullName>
-        <label>Rider Rating</label>
-        <scale>1</scale>
-        <precision>2</precision>
+        <fullName>Start_Location_Long__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Location Longitude</label>
+        <precision>7</precision>
         <required>false</required>
-        <unique>false</unique>
+        <scale>4</scale>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Start_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Start Time</label>
+        <required>true</required>
+        <type>DateTime</type>
     </fields>
     <indexes>
         <fullName>Rider_History_Index</fullName>
-        <label>Rider History Index</label>
         <fields>
             <name>Rider_Account__c</name>
             <sortDirection>DESC</sortDirection>
@@ -68,6 +73,7 @@
             <name>Start_Time__c</name>
             <sortDirection>ASC</sortDirection>
         </fields>
+        <label>Rider History Index</label>
     </indexes>
     <label>Rider History</label>
     <pluralLabel>Rider Histories</pluralLabel>
