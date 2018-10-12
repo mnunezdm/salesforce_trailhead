@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <deploymentStatus>Deployed</deploymentStatus>
+    <fields>
+        <fullName>Account__c</fullName>
+        <externalId>false</externalId>
+        <label>User Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>Game_User_Account</relationshipName>
+        <required>true</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Game_Platform__c</fullName>
+        <externalId>false</externalId>
+        <label>Platform</label>
+        <length>16</length>
+        <required>true</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>In_Game_Purchase__c</fullName>
+        <externalId>false</externalId>
+        <label>In-Game Purchase</label>
+        <length>16</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Level_Achieved__c</fullName>
+        <externalId>false</externalId>
+        <label>Level Achieved</label>
+        <length>16</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Lives_This_Game__c</fullName>
+        <externalId>false</externalId>
+        <label>Lives Used This Game</label>
+        <length>16</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Play_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Date of Play</label>
+        <required>true</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Play_Duration__c</fullName>
+        <externalId>false</externalId>
+        <label>Play Duration</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Score_This_Game__c</fullName>
+        <externalId>false</externalId>
+        <label>Score This Game</label>
+        <length>16</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <indexes>
+        <fullName>CustomerInteractionsIndex</fullName>
+        <fields>
+            <name>Account__c</name>
+            <sortDirection>DESC</sortDirection>
+        </fields>
+        <fields>
+            <name>Game_Platform__c</name>
+            <sortDirection>ASC</sortDirection>
+        </fields>
+        <fields>
+            <name>Play_Date__c</name>
+            <sortDirection>DESC</sortDirection>
+        </fields>
+        <label>Customer Interactions Index</label>
+    </indexes>
+    <label>Customer Interaction</label>
+    <pluralLabel>Customer Interactions</pluralLabel>
+</CustomObject>
