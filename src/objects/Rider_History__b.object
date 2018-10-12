@@ -6,15 +6,15 @@
         <label>Start Location Latitude</label>
         <required>false</required>
         <type>Number</type>
-        <scale>7</scale>
-        <precision>4</precision>
+        <scale>4</scale>
+        <precision>7</precision>
         <unique>false</unique>
     </fields>
     <fields>
         <fullName>Start_Location_Long__c</fullName>
         <label> Start Location Longitude</label>
-        <scale>7</scale>
-        <precision>4</precision>
+        <scale>4</scale>
+        <precision>7</precision>
         <required>false</required>
         <type>Number</type>
         <unique>false</unique>
@@ -51,8 +51,8 @@
     <fields>
         <fullName>Rider_Rating__c</fullName>
         <label>Rider Rating</label>
-        <scale>2</scale>
-        <precision>1</precision>
+        <scale>1</scale>
+        <precision>2</precision>
         <required>false</required>
         <unique>false</unique>
         <type>Number</type>
