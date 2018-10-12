@@ -10,6 +10,6 @@ artifacts_folder
 .forceCode
 .sfdx
 .vscode
-soql
 force.json
+**/soql/**/*
 **/coverage/**/*
