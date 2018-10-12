@@ -89,6 +89,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BusScheduleCache</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CalculatorCalloutMock</apexClass>
         <enabled>false</enabled>
     </classAccesses>
