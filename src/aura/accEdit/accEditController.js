@@ -6,8 +6,9 @@
             } else if (saveResult.state === "INCOMPLETE") {
                 console.log("User is offline, device doesn't support drafts.");
             } else if (saveResult.state === "ERROR") {
-                console.log('Problem saving record, error: ' +
-                    JSON.stringify(saveResult.error));
+                message = `Problem saving record, error: ${JSON.stringify(saveResult.error)}`
+                console.log(message);
+                component.set('v.recordSaveError', message)
             } else {
                 console.log('Unknown problem, state: ' + saveResult.state + ', error: ' + JSON.stringify(saveResult.error));
             }
