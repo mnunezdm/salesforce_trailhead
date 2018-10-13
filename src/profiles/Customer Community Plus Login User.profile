@@ -2770,6 +2770,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>ShowAssistantInfo</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>ShowImage</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
