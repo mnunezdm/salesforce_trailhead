@@ -2938,6 +2938,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>QuickAccount</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>ShowImage</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -3105,6 +3109,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Latest_Accounts</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>MobileContacts</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
