@@ -1,0 +1,12 @@
+<apex:page controller="templateExample">
+    <style type="text/css">
+    .boldify { font-weight: bolder; }
+    </style>
+    <apex:include pageName="formTemplate"/>
+    <apex:actionSupport event="onClick"
+                        action="{!save}"
+                        rerender="greeting"/>
+    <apex:outputText id="greeting" rendered="{!showGreeting}"
+                     styleClass="boldify"
+                     value="I hope you are well, {!nameField}."/>
+</apex:page>
