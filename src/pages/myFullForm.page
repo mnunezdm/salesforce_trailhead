@@ -1,5 +1,5 @@
 <apex:page controller="compositionExample">
-    <apex:messages/>
+    <apex:messages />
     <apex:composition template="myFormComposition">
 
         <apex:define name="meal">
