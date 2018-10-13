@@ -203,6 +203,10 @@
     </types>
     <types>
         <members>*</members>
+        <name>CustomTab</name>
+    </types>
+    <types>
+        <members>*</members>
         <name>PlatformCachePartition</name>
     </types>
     <version>43.0</version>
