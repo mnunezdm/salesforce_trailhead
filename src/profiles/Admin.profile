@@ -3085,6 +3085,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>CloseOpportunity</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>ContactView</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
