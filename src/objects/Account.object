@@ -55,7 +55,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <comment>Action override updated by Lightning App Builder during activation.</comment>
-        <content>New_Account_Page</content>
+        <content>Account_Record_Page</content>
         <formFactor>Large</formFactor>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Flexipage</type>

@@ -162,6 +162,12 @@
                 </criteria>
             </visibilityRule>
         </componentInstances>
+        <componentInstances>
+            <componentName>accDisplay</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>accEdit</componentName>
+        </componentInstances>
         <mode>Replace</mode>
         <name>leftsidebar</name>
         <type>Region</type>
