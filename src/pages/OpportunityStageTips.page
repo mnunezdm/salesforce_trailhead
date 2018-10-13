@@ -1,19 +1,17 @@
-<apex:page docType="html-5.0" standardController="Opportunity">
-    <div class="programstatus">
-        <div>
-            {!HTMLENCODE(CASE(Opportunity.StageName,
-                'Prospecting', 'eee',
-                'Qualification', 'aa',
-                'Needs Analysis', 'uuu',
-                'Value Proposition', 'eii',
-                'Id. Decision Makers', 'aaa',
-                'Perception Analysis', 'blabla',
-                'Proposal/Price Quote', 'MORE MORE',
-                'Negotiation/Review', 'Donnot reduce the benefits',
-                'Closed Won', 'I knew you could do that',
-                'Closed Lost', 'More luck the next time',
-                'You are alone, dude'
-                ))}
-        </div>
-    </div>
+<apex:page docType="html-5.0" standardController="Opportunity" title="Detals">
+
+   <apex:outputPanel rendered="{!if(Opportunity.stagename=='Prospecting',true,false)}">
+        This is prospecing tips
+   </apex:outputPanel>
+   <apex:outputPanel rendered="{!if(Opportunity.stagename=='Needs Analysis',true,false)}">
+        This is without prospecing tips
+   </apex:outputPanel>
+
+   <apex:outputPanel rendered="{!if(Opportunity.stagename=='Proposal/Price Quote',true,false)}">
+        This is without prospecing tips
+   </apex:outputPanel>
+
+   <apex:outputPanel rendered="{!if(Opportunity.stagename=='Negotiation/Review',true,false)}">
+        This is without prospecing tips
+   </apex:outputPanel>
 </apex:page>
