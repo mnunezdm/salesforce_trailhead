@@ -3149,6 +3149,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>LatestAccountsSLDS</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>LightningConnectQuickstart</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
