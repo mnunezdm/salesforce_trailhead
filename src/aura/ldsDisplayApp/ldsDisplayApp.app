@@ -13,6 +13,9 @@
             <div class="slds-box slds-m-vertical_x-large">
                 <c:ldsDeleteRecord recordId="0031v00001lAm2mAAC"/>
             </div>
+            <div class="slds-box slds-m-vertical_x-large">
+                <c:ldsChangedRecord recordId="0010Y00000EJucJQAT" />
+            </div>
         </div>
     </div>
 </aura:application>
