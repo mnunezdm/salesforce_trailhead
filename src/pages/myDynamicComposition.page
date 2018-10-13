@@ -1,0 +1,7 @@
+<apex:page controller="dynamicComposition">
+    <apex:composition template="{!myTemplate}">
+        <apex:define name="name">
+            Hello {!$User.FirstName}, you look quite well.
+        </apex:define>
+    </apex:composition>
+</apex:page>
