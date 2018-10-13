@@ -3,12 +3,7 @@
         component.find("recordHandler").deleteRecord($A.getCallback(function (deleteResult) {
             if (deleteResult.state === "SUCCESS" || deleteResult.state === "DRAFT") {
                 console.log("Record is deleted.");
-                var resultsToast = $A.get("e.force:showToast");
-                resultsToast.setParams({
-                    "title": "Deleted",
-                    "message": "The record was deleted."
-                });
-                resultsToast.fire();
+                helper.showToast("Deleted", "The record was deleted.")
             }
             else if (deleteResult.state === "INCOMPLETE") {
                 console.log("User is offline, device doesn't support drafts.");
