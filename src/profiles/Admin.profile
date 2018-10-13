@@ -3229,6 +3229,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>StockQuote</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>Trailhead_SLDS_Contacts</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
