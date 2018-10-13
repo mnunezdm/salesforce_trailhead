@@ -1,5 +1,5 @@
 ({
-    showToast : function(title, message) {
+    showToast: function (title, message) {
         var resultsToast = $A.get("e.force:showToast");
         if (resultsToast) {
             resultsToast.setParams({
