@@ -94,6 +94,12 @@
     </flexiPageRegions>
     <flexiPageRegions>
         <componentInstances>
+            <componentName>accDisplay</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentName>accEdit</componentName>
+        </componentInstances>
+        <componentInstances>
             <componentName>runtime_sales_social:socialPanel</componentName>
         </componentInstances>
         <name>sidebar</name>
