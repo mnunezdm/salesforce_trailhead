@@ -3181,6 +3181,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>OpportunityStageTips</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>Predict</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
