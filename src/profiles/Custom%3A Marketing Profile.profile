@@ -3021,6 +3021,10 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Responsive_Page</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Sector__c</tab>
         <visibility>Hidden</visibility>
     </tabVisibilities>
