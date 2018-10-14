@@ -2747,6 +2747,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>ResponsivePage</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>ShowAssistantInfo</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
