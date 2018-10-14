@@ -2684,6 +2684,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>ResponsivePage</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>ShowAssistantInfo</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -2880,6 +2884,10 @@
     <tabVisibilities>
         <tab>Recommendation__c</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Responsive_Page</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Sector__c</tab>

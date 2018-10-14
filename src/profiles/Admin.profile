@@ -3197,6 +3197,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>ResponsivePage</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>ShowAssistantInfo</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -3392,6 +3396,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Recommendation__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Responsive_Page</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
