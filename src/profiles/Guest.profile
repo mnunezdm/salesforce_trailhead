@@ -2883,6 +2883,10 @@
         <visibility>Hidden</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>MobileFrameworks</tab>
+        <visibility>Hidden</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>MyData</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

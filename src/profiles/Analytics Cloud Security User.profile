@@ -3144,6 +3144,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>MobileFrameworks</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>MyData</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
