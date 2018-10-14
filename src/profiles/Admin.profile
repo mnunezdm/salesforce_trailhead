@@ -3169,6 +3169,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>MobileFrameworks</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>MyProfilePage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -3380,6 +3384,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>MobileContacts</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>MobileFrameworks</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
