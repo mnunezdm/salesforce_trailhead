@@ -45,7 +45,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
@@ -68,7 +67,7 @@
     <gender>Feminine</gender>
     <label>Review</label>
     <nameField>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <label>Review Name</label>
         <type>Text</type>
     </nameField>

@@ -45,7 +45,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
@@ -67,7 +66,7 @@
     </fields>
     <fields>
         <fullName>Departure__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Departure</label>
         <required>false</required>
@@ -89,7 +88,7 @@
     <gender>Masculine</gender>
     <label>Booking</label>
     <nameField>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <label>Booking Name</label>
         <type>Text</type>
     </nameField>

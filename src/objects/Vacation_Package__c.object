@@ -45,7 +45,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
@@ -79,7 +78,7 @@
     <gender>Feminine</gender>
     <label>Vacation Package</label>
     <nameField>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <label>Vacation Package Name</label>
         <type>Text</type>
     </nameField>

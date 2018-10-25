@@ -132,7 +132,7 @@
     </fields>
     <fields>
         <fullName>CurrentGenerators__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Current Generator(s)</label>
         <length>100</length>
@@ -225,7 +225,7 @@
     </fields>
     <fields>
         <fullName>Description</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
     </fields>
@@ -286,7 +286,7 @@
     </fields>
     <fields>
         <fullName>MainCompetitors__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Main Competitor(s)</label>
         <length>100</length>
@@ -298,19 +298,19 @@
     </fields>
     <fields>
         <fullName>Name</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>true</trackFeedHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
         <fullName>NextStep</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
         <fullName>OrderNumber__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Order Number</label>
         <length>8</length>
@@ -355,7 +355,7 @@
     </fields>
     <fields>
         <fullName>TrackingNumber__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Tracking Number</label>
         <length>12</length>

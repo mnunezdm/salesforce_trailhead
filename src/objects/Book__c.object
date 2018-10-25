@@ -49,7 +49,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -70,7 +69,7 @@
     </fields>
     <fields>
         <fullName>Description__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Description</label>
         <required>false</required>
@@ -274,7 +273,7 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <label>Book Name</label>
         <type>Text</type>
     </nameField>

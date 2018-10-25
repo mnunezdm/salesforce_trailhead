@@ -66,7 +66,7 @@
     </fields>
     <fields>
         <fullName>BillingAddress</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
@@ -149,7 +149,7 @@
     </fields>
     <fields>
         <fullName>ShippingAddress</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackHistory>true</trackHistory>
     </fields>
     <fields>

@@ -45,7 +45,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
@@ -55,7 +54,7 @@
     <fields>
         <fullName>Sector_Id__c</fullName>
         <caseSensitive>false</caseSensitive>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>true</externalId>
         <label>Sector Id</label>
         <length>8</length>
@@ -71,7 +70,7 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <label>Sector Name</label>
         <type>Text</type>
     </nameField>

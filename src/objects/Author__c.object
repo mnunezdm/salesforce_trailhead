@@ -49,7 +49,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
@@ -58,7 +57,7 @@
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>Biography__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Biography</label>
         <required>false</required>
@@ -72,7 +71,7 @@
         <label>All</label>
     </listViews>
     <nameField>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <label>Author Name</label>
         <type>Text</type>
     </nameField>

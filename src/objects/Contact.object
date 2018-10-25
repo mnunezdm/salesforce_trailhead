@@ -110,17 +110,26 @@
     </fields>
     <fields>
         <fullName>AssistantName</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>AssistantPhone</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>Birthdate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Birthdate__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Birthdate Custom</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>CleanStatus</fullName>
@@ -156,7 +165,7 @@
     </fields>
     <fields>
         <fullName>Description</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -165,12 +174,12 @@
     </fields>
     <fields>
         <fullName>Email</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>Fax</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -183,7 +192,7 @@
     </fields>
     <fields>
         <fullName>HomePhone</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -192,7 +201,7 @@
     </fields>
     <fields>
         <fullName>Languages__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Languages</label>
         <length>100</length>
@@ -242,27 +251,27 @@
     </fields>
     <fields>
         <fullName>MailingAddress</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>MobilePhone</fullName>
-        <encrypted>true</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>Name</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>true</trackFeedHistory>
     </fields>
     <fields>
         <fullName>OtherAddress</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>OtherPhone</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -272,7 +281,7 @@
     </fields>
     <fields>
         <fullName>Phone</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -282,7 +291,7 @@
     </fields>
     <fields>
         <fullName>Title</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <listViews>
@@ -291,7 +300,29 @@
         <label>All Contacts</label>
     </listViews>
     <listViews>
+        <fullName>Birthday_this_month</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Birthdate__c</field>
+            <operation>equals</operation>
+            <value>THIS_MONTH</value>
+        </filters>
+        <label>Birthday this month</label>
+    </listViews>
+    <listViews>
         <fullName>BirthdaysThisMonth</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CONTACT.TITLE</columns>
+        <columns>CONTACT.PHONE1</columns>
+        <columns>CONTACT.EMAIL</columns>
+        <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>CONTACT.BIRTHDATE</field>
@@ -350,7 +381,7 @@
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>Contact_must_be_in_Account_ZIP_Code</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(
 NOT(ISBLANK(AccountId)),
 MailingPostalCode != Account.ShippingPostalCode

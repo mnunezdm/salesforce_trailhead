@@ -209,5 +209,5 @@
         <members>*</members>
         <name>PlatformCachePartition</name>
     </types>
-    <version>43.0</version>
+    <version>44.0</version>
 </Package>

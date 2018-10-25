@@ -45,7 +45,6 @@
     <deploymentStatus>Deployed</deploymentStatus>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableChangeDataCapture>false</enableChangeDataCapture>
     <enableFeeds>false</enableFeeds>
     <enableHistory>false</enableHistory>
     <enableReports>false</enableReports>
@@ -54,7 +53,7 @@
     <enableStreamingApi>true</enableStreamingApi>
     <fields>
         <fullName>from__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>From</label>
         <length>32</length>
@@ -65,7 +64,7 @@
     </fields>
     <fields>
         <fullName>msg__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>Message</label>
         <length>255</length>
@@ -76,7 +75,7 @@
     </fields>
     <fields>
         <fullName>to__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>To</label>
         <length>32</length>
@@ -88,7 +87,7 @@
     <gender>Feminine</gender>
     <label>SMS Log</label>
     <nameField>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <label>SMS_Log__c Name</label>
         <type>Text</type>
     </nameField>
