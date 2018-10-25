@@ -1,0 +1,20 @@
+# cicd
+
+list
+retrieve
+post
+devops
+describe.log
+srcToDeploy
+*-build.xml
+artifacts_folder
+
+# workspace
+
+sfdx-project.json
+.forceCode
+.sfdx
+.vscode/settings.json
+force.json
+**/soql/**/*
+**/coverage/**/*
