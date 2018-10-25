@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Threat Tier Mappings</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Threat Tier Mappings</value>
+    </caseValues>
+    <fields>
+        <label><!-- Accessories Threat Tier --></label>
+        <name>Accessories_Threat_Tier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Field Mapping --></label>
+        <name>Field_Mapping__c</name>
+        <relationshipLabel><!-- Threat Tier Mappings --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Minimum Support Level --></label>
+        <name>Minimum_Support_Level__c</name>
+    </fields>
+    <gender>Feminine</gender>
+</CustomObjectTranslation>

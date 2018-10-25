@@ -54,7 +54,7 @@
     </fields>
     <fields>
         <fullName>Description</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
     </fields>
     <fields>
         <fullName>DurationInMinutes</fullName>

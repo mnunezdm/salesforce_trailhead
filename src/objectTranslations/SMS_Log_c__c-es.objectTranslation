@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SMS Log</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SMS Logs</value>
+    </caseValues>
+    <fields>
+        <label><!-- From --></label>
+        <name>from__c</name>
+    </fields>
+    <fields>
+        <label><!-- Message --></label>
+        <name>msg__c</name>
+    </fields>
+    <fields>
+        <label><!-- To --></label>
+        <name>to__c</name>
+    </fields>
+    <gender>Feminine</gender>
+</CustomObjectTranslation>

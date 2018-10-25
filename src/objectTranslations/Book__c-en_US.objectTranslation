@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Book</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Books</value>
+    </caseValues>
+    <fields>
+        <label><!-- Author --></label>
+        <name>Author__c</name>
+        <relationshipLabel><!-- Books --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Genre --></label>
+        <name>Genre__c</name>
+        <picklistValues>
+            <masterLabel>Adventure</masterLabel>
+            <translation><!-- Adventure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autobiography</masterLabel>
+            <translation><!-- Autobiography --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Biography </masterLabel>
+            <translation><!-- Biography  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Classic</masterLabel>
+            <translation><!-- Classic --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crime</masterLabel>
+            <translation><!-- Crime --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Drama</masterLabel>
+            <translation><!-- Drama --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Essay  </masterLabel>
+            <translation><!-- Essay   --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fable </masterLabel>
+            <translation><!-- Fable  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fairy tale </masterLabel>
+            <translation><!-- Fairy tale  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fantasy</masterLabel>
+            <translation><!-- Fantasy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Folklore </masterLabel>
+            <translation><!-- Folklore  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Historical fiction</masterLabel>
+            <translation><!-- Historical fiction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Horror </masterLabel>
+            <translation><!-- Horror  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Humor</masterLabel>
+            <translation><!-- Humor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Journalism </masterLabel>
+            <translation><!-- Journalism  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lab Report  </masterLabel>
+            <translation><!-- Lab Report   --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Legend </masterLabel>
+            <translation><!-- Legend  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Magical realism </masterLabel>
+            <translation><!-- Magical realism  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Memoir  </masterLabel>
+            <translation><!-- Memoir   --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mystery </masterLabel>
+            <translation><!-- Mystery  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mythology </masterLabel>
+            <translation><!-- Mythology  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Narrative nonfiction</masterLabel>
+            <translation><!-- Narrative nonfiction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Owner&apos;s manual </masterLabel>
+            <translation><!-- Owner&apos;s manual  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Picture book </masterLabel>
+            <translation><!-- Picture book  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Realistic fiction</masterLabel>
+            <translation><!-- Realistic fiction --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reference book  </masterLabel>
+            <translation><!-- Reference book   --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Science fiction </masterLabel>
+            <translation><!-- Science fiction  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Self-help book  </masterLabel>
+            <translation><!-- Self-help book   --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Short story </masterLabel>
+            <translation><!-- Short story  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Speech  </masterLabel>
+            <translation><!-- Speech   --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspense</masterLabel>
+            <translation><!-- Suspense --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tall tale </masterLabel>
+            <translation><!-- Tall tale  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Textbook  </masterLabel>
+            <translation><!-- Textbook   --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Thriller </masterLabel>
+            <translation><!-- Thriller  --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Western </masterLabel>
+            <translation><!-- Western  --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>Book Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

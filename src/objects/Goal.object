@@ -80,7 +80,7 @@
     <fields>
         <fullName>OrigGoalId__c</fullName>
         <caseSensitive>true</caseSensitive>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>OrigGoalId</label>
         <length>18</length>

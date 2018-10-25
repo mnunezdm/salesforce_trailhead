@@ -109,8 +109,17 @@
     </fields>
     <fields>
         <fullName>BillingAddress</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Birthdate__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Birthdate Custom</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>CleanStatus</fullName>
@@ -151,7 +160,7 @@
     <fields>
         <fullName>Customer_ID__c</fullName>
         <caseSensitive>false</caseSensitive>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>true</externalId>
         <label>Customer ID</label>
         <length>18</length>
@@ -187,7 +196,7 @@
     </fields>
     <fields>
         <fullName>Description</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -196,7 +205,7 @@
     </fields>
     <fields>
         <fullName>Fax</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -219,6 +228,16 @@
         <type>Location</type>
     </fields>
     <fields>
+        <fullName>LowerCaseName__c</fullName>
+        <externalId>false</externalId>
+        <formula>LOWER(Name)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>LowerCaseName</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Match_Billing_Address__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -236,7 +255,7 @@
     </fields>
     <fields>
         <fullName>Name</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>true</trackFeedHistory>
     </fields>
     <fields>
@@ -282,7 +301,7 @@
     </fields>
     <fields>
         <fullName>Phone</fullName>
-        <encrypted>true</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -301,7 +320,7 @@
     </fields>
     <fields>
         <fullName>SLAExpirationDate__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <externalId>false</externalId>
         <label>SLA Expiration Date</label>
         <required>false</required>
@@ -310,7 +329,7 @@
     </fields>
     <fields>
         <fullName>SLASerialNumber__c</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <label>SLA Serial Number</label>
         <length>10</length>
@@ -354,7 +373,7 @@
     </fields>
     <fields>
         <fullName>ShippingAddress</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -367,7 +386,7 @@
     </fields>
     <fields>
         <fullName>Site</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -402,7 +421,7 @@
     <fields>
         <fullName>Support_Plan_Start_Date__c</fullName>
         <description>Start date of current support plan</description>
-        <encrypted>false</encrypted>
+        <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>
         <inlineHelpText>When did the current support plan begin?</inlineHelpText>
         <label>Support Plan Start Date</label>
@@ -453,7 +472,7 @@
     </fields>
     <fields>
         <fullName>Website</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>

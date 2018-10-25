@@ -27,7 +27,7 @@
     <enableFeeds>false</enableFeeds>
     <fields>
         <fullName>CommentBody</fullName>
-        <encrypted>false</encrypted>
+        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
     </fields>
     <fields>
         <fullName>ParentOrigin</fullName>
