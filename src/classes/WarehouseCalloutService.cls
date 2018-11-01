@@ -10,7 +10,7 @@ public with sharing class WarehouseCalloutService {
         HttpRequest request = new HttpRequest();
 	    request.setEndpoint(WAREHOUSE_URL);
         request.setMethod(REQUEST_TYPE);
-        System.debug(LoggingLevel.DEBUG, 'Preparing ' + REQUEST_TYPE + ' to ' + WAREHOUSE_URL);
+        System.debug(LoggingLevel.DEBUG, 'Preparing Request: ' + WAREHOUSE_URL + ' [' + REQUEST_TYPE + ']');
 
         Http session = new Http();
         HttpResponse response = session.send(request);
