@@ -9,4 +9,14 @@ public with sharing class WarehouseCalloutService {
         
     }
 
+    private class WarehouseEquipmentResponse {
+        String id;
+        Boolean replacement;
+        Integer quantity;
+        String name;
+        Integer maintenanceperiod;
+        Integer lifespan;
+        Integer cost;
+        String sku;
+    }
 }
