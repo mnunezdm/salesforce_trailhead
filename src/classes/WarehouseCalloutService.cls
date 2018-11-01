@@ -4,6 +4,7 @@ public with sharing class WarehouseCalloutService {
     
     // complete this method to make the callout (using @future) to the
     // REST endpoint and update equipment on hand.
+    // @future(callout=true)
     public static void runWarehouseEquipmentSync(){
         
     }
