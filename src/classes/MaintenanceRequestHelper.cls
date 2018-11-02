@@ -1,4 +1,5 @@
 public class MaintenanceRequestHelper {
+    @testVisible
     private static final String CASE_TYPE = 'Routine Maintenance';
     private static final String MANTAINANCE_STRING = 'Mantainance for ';
 
