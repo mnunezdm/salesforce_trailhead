@@ -2,7 +2,7 @@
 public with sharing class MaintenanceRequestHelperTest {
 
     @isTest
-    public static void MaintenanceClosedTest() {
+    public static void maintenanceClosedTest() {
         String randomString = String.valueOf(Math.random());
         Product2 equipment = new Product2(Maintenance_Cycle__c=1,
                                           Name=generateRandomTestName());
@@ -31,7 +31,7 @@ public with sharing class MaintenanceRequestHelperTest {
     }
 
     @isTest
-    public static void NoMaintenanceClosedTest() {
+    public static void noMaintenanceClosedTest() {
         String randomString = String.valueOf(Math.random());
         Product2 equipment = new Product2(Maintenance_Cycle__c=1,
                                           Name=generateRandomTestName());
@@ -59,7 +59,7 @@ public with sharing class MaintenanceRequestHelperTest {
     }
 
     @isTest
-    public static void CaseClosedTest() {
+    public static void caseClosedTest() {
         String randomString = String.valueOf(Math.random());
         Product2 equipment = new Product2(Maintenance_Cycle__c=1,
                                           Name=generateRandomTestName());
@@ -86,7 +86,7 @@ public with sharing class MaintenanceRequestHelperTest {
     }
 
     @isTest
-    public static void BulkMaintenanceClosedTest() {
+    public static void bulkMaintenanceClosedTest() {
         String randomString = String.valueOf(Math.random());
         Product2 equipment = new Product2(Maintenance_Cycle__c=1,
                                           Name=generateRandomTestName());
