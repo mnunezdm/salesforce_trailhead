@@ -15,26 +15,34 @@ public with sharing class WarehouseCalloutService {
         Http session = new Http();
         HttpResponse response = session.send(request);
         String body = response.getBody();
-        System.debug(LoggingLevel.DEBUG, 'Request Completed with ' + response.getStatus() + ' (' + response.getStatusCode() + ')');
+        Integer statusCode = response.getStatusCode();
 
-        List<WarehouseEquipmentResponse> equipments = (List<WarehouseEquipmentResponse>) JSON.deserialize(body, List<WarehouseEquipmentResponse>.class);
-        System.debug(LoggingLevel.DEBUG, 'Equipment retrieved (' + equipments.size() + ')');
-        System.debug(LoggingLevel.FINE, equipments);
+        System.debug(LoggingLevel.DEBUG, 'Request Completed with ' + response.getStatus() + ' (' + statusCode + ')');
 
-        List<Product2> products = new List<Product2>();
-        for (WarehouseEquipmentResponse equipment : equipments) {
-            products.add(new Product2(Name=equipment.name,
-                                      Replacement_Part__c=true,
-                                      Cost__c=1,
-                                      Current_Inventory__c=equipment.quantity,
-                                      Lifespan_Months__c=equipment.lifespan,
-                                      Maintenance_Cycle__c=equipment.maintenanceperiod,
-                                      Warehouse_SKU__c=equipment.sku));
+        if (statusCode == 200 && response.getHeader('Content-Type') == 'application/json') {
+            List<WarehouseEquipmentResponse> equipments = (List<WarehouseEquipmentResponse>) JSON.deserialize(body, List<WarehouseEquipmentResponse>.class);
+            System.debug(LoggingLevel.DEBUG, 'Equipment retrieved (' + equipments.size() + ')');
+            System.debug(LoggingLevel.FINE, equipments);
+
+            List<Product2> products = new List<Product2>();
+            for (WarehouseEquipmentResponse equipment : equipments) {
+                products.add(new Product2(Name=equipment.name,
+                                        Replacement_Part__c=true,
+                                        Cost__c=1,
+                                        Current_Inventory__c=equipment.quantity,
+                                        Lifespan_Months__c=equipment.lifespan,
+                                        Maintenance_Cycle__c=equipment.maintenanceperiod,
+                                        Warehouse_SKU__c=equipment.sku));
+            }
+            System.debug(LoggingLevel.FINE, 'Data to upsert: ' + products);
+            Database.UpsertResult[] results = Database.upsert(products, Product2.Warehouse_SKU__c);
+            System.debug(LoggingLevel.DEBUG, 'Upsert done, GlobalResult=' + getGlobalResults(results));
+            System.debug(LoggingLevel.FINE, 'Upsert Results: ' + results);
+        } else if (statusCode == 204) {
+            System.debug(LoggingLevel.WARN, 'Received empty response');
+        } else if (response.getHeader('Content-Type') != 'application/json') {
+            System.debug(LoggingLevel.ERROR, 'Received non json content');
         }
-        System.debug(LoggingLevel.FINE, 'Data to upsert: ' + products);
-        Database.UpsertResult[] results = Database.upsert(products, Product2.Warehouse_SKU__c);
-        System.debug(LoggingLevel.DEBUG, 'Upsert done, GlobalResult=' + getGlobalResults(results));
-        System.debug(LoggingLevel.FINE, 'Upsert Results: ' + results);
     }
 
     private static Boolean getGlobalResults(Database.UpsertResult[] results) {
