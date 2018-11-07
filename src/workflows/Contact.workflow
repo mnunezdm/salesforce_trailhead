@@ -34,7 +34,7 @@
     <fieldUpdates>
         <fullName>Update_Age</fullName>
         <field>Age__c</field>
-        <formula>YEAR(TODAY()) -  YEAR(Birthdate) - 
+        <formula>YEAR(TODAY()) -  YEAR(Birthdate) -
     IF(MONTH(TODAY()) &lt; MONTH(Birthdate),
 							1,
 							IF(MONTH(TODAY()) &gt; MONTH(Birthdate),
@@ -61,26 +61,14 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>(
-				MONTH(Birthdate) &lt;&gt; MONTH(Next_Birthday__c)
-	||
-				DAY(Birthdate) &lt;&gt; DAY(Next_Birthday__c)
-)
-&amp;&amp; Receive_Birthday_Emails__c = True</formula>
-        <triggerType>onAllChanges</triggerType>
-    </rules>
-    <rules>
-        <fullName>Birthday Email Opt-Out</fullName>
-        <actions>
-            <name>Check_Reset_Birthday_Email_System_Box</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Contact.Receive_Birthday_Emails__c</field>
-            <operation>equals</operation>
-            <value>False</value>
-        </criteriaItems>
+        <formula>OR(
+				AND(NOT(ISNULL(Birthdate)),
+								ISNULL(Next_Birthday__c)
+							),
+				MONTH(Birthdate) != MONTH(Next_Birthday__c),
+				DAY(Birthdate) != DAY(Next_Birthday__c),
+				ISCHANGED(Birthdate)
+)</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -94,11 +82,6 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Contact.Receive_Birthday_Emails__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
         <criteriaItems>
             <field>Contact.Reset_Birthday_Email_System__c</field>
             <operation>equals</operation>
@@ -118,11 +101,6 @@
     <rules>
         <fullName>Update Age</fullName>
         <active>true</active>
-        <criteriaItems>
-            <field>Contact.Receive_Birthday_Emails__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
         <criteriaItems>
             <field>Contact.Reset_Birthday_Email_System__c</field>
             <operation>equals</operation>
