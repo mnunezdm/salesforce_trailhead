@@ -67,7 +67,54 @@
 							),
 				MONTH(Birthdate) != MONTH(Next_Birthday__c),
 				DAY(Birthdate) != DAY(Next_Birthday__c),
-				ISCHANGED(Birthdate)
+				NOT(Reset_Birthday_Email_System__c)
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Change in Year</fullName>
+        <actions>
+            <name>Update_Age</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>AND(
+				NOT(ISNULL(PRIORVALUE(Birthdate))),
+				YEAR(PRIORVALUE(Birthdate)) != YEAR(Birthdate)
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Force Reset Birthday</fullName>
+        <active>false</active>
+        <formula>OR( 
+AND(NOT(ISNULL(Birthdate)), 
+ISNULL(Next_Birthday__c) 
+), 
+MONTH(Birthdate) != MONTH(Next_Birthday__c), 
+DAY(Birthdate) != DAY(Next_Birthday__c), 
+Reset_Birthday_Email_System__c
+)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Reset Birthdate Active</fullName>
+        <actions>
+            <name>Reset_Next_Birthday</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <actions>
+            <name>Update_Age</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>OR( 
+				AND(NOT(ISNULL(Birthdate)), 
+								ISNULL(Next_Birthday__c) 
+							), 
+				MONTH(Birthdate) != MONTH(Next_Birthday__c), 
+				DAY(Birthdate) != DAY(Next_Birthday__c), 
+				Reset_Birthday_Email_System__c
 )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
