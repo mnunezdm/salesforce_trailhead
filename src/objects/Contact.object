@@ -109,6 +109,17 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Age__c</fullName>
+        <externalId>false</externalId>
+        <label>Age</label>
+        <precision>4</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>AssistantName</fullName>
         <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
@@ -265,6 +276,15 @@
         <trackFeedHistory>true</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>Next_Birthday__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Next Birthday</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>OtherAddress</fullName>
         <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
@@ -288,6 +308,15 @@
         <fullName>ReportsToId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Schedule_Birthday_Update__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Activating this checkbox will schedule the automatic update of the next birthday and age fields</description>
+        <externalId>false</externalId>
+        <label>Schedule Birthday Update</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Title</fullName>
