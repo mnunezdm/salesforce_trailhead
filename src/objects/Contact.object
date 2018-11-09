@@ -310,10 +310,11 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Reset_Birthday_Email_System__c</fullName>
+        <fullName>Schedule_Birthday_Update__c</fullName>
         <defaultValue>false</defaultValue>
+        <description>Activating this checkbox will schedule the automatic update of the next birthday and age fields</description>
         <externalId>false</externalId>
-        <label>Reset Birthday Email System</label>
+        <label>Schedule Birthday Update</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
