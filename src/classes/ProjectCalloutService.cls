@@ -96,9 +96,14 @@ public class ProjectCalloutService {
         }
 
         private Integer convertToInteger(Decimal value) {
-            Integer convertedValue = Integer.valueOf(String.valueOf(Math.roundToLong(value)));
-            System.debug(LoggingLevel.FINE, 'Converted decimal from \'' + value + '\' to \'' + convertedValue + '\'');
-            return convertedValue;
+            if (value != null) {
+                Integer convertedValue = Integer.valueOf(String.valueOf(Math.roundToLong(value)));
+                System.debug(LoggingLevel.FINE, 'Converted decimal from \'' + value + '\' to \'' + convertedValue + '\'');
+                return convertedValue;
+            } else {
+                System.debug(LoggingLevel.WARN, 'Input value was NULL');
+                return 0;
+            }
         }
     }
 }
