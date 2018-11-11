@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ConnectedApp xmlns="http://soap.sforce.com/2006/04/metadata">
+    <contactEmail>mnunezdm@gmail.com</contactEmail>
+    <label>ProjectService</label>
+    <oauthConfig>
+        <callbackUrl>https://sb-integration-pms.herokuapp.com/oauth/_callback</callbackUrl>
+        <consumerKey>3MVG9fTLmJ60pJ5IUQOPPYV2yjojKaETDNs.yB4tVidvpW6xJ7CCC5yylskaNyfMCdoS8YWM4bMlJ_qTYZVqt</consumerKey>
+        <scopes>Full</scopes>
+        <scopes>RefreshToken</scopes>
+    </oauthConfig>
+</ConnectedApp>
