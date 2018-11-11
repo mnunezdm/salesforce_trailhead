@@ -91,4 +91,22 @@
         <probability>0</probability>
         <won>false</won>
     </standardValue>
+    <standardValue>
+        <fullName>Submitted Project</fullName>
+        <default>false</default>
+        <label>Submitted Project</label>
+        <closed>true</closed>
+        <forecastCategory>Closed</forecastCategory>
+        <probability>100</probability>
+        <won>true</won>
+    </standardValue>
+    <standardValue>
+        <fullName>Resubmit Project</fullName>
+        <default>false</default>
+        <label>Resubmit Project</label>
+        <closed>true</closed>
+        <forecastCategory>Omitted</forecastCategory>
+        <probability>100</probability>
+        <won>true</won>
+    </standardValue>
 </StandardValueSet>
