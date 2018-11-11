@@ -11,7 +11,6 @@ artifacts_folder
 
 # workspace
 
-sfdx-project.json
 .forceCode
 .sfdx
 .vscode/settings.json
