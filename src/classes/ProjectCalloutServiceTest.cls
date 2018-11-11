@@ -50,8 +50,9 @@ private class ProjectCalloutServiceTest {
         Test.setMock(HttpCalloutMock.class, new ProjectCalloutServiceMockFailure());
 
         Test.startTest();
-        opp.StageName = 'Closed/Won';
+        opp.StageName = 'Closed Won';
         opp.Type = 'New Project';
+        opp.Amount = null;
         update opp;
         Test.stopTest();
 
@@ -61,13 +62,13 @@ private class ProjectCalloutServiceTest {
         List<Opportunity> retrievedOpportunity = [SELECT StageName
                                                   FROM Opportunity
                                                   WHERE Id = :opp.id];
-        System.assertEquals(1, retrievedOpportunity.size(), 'Expected get one&only opportunity');
+        System.assertEquals(1, retrievedOpportunity.size(), 'Expected to get one&only opportunity');
         System.assertEquals(ProjectCalloutService.CALLOUT_UNSUCCESSFULL, retrievedOpportunity[0].StageName);
     }
 
     private static Opportunity createOpportunity(){
         Opportunity opp = new Opportunity(Name='Test Value',
-                                          StageName='Closed/Won',
+                                          StageName='Closed Won',
                                           CloseDate=System.today(),
                                           Amount=1000.00);
         insert opp;
