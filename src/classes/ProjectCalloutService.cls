@@ -1,7 +1,10 @@
 public class ProjectCalloutService {
+    @TestVisible
     private static final String CALLOUT_SUCCESSFULL = 'Submitted Project';
+    @TestVisible
     private static final String CALLOUT_UNSUCCESSFULL = 'Resubmit Project';
 
+    @TestVisible
     private static final String TOKEN_CUSTOMSETTING_KEY = 'ProjectServiceToken';
     private static final String NAMEDCREDENTIAL_KEY = 'callout:ProjectService';
     private static final String REQUEST_METHOD = 'POST';
