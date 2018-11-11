@@ -8,6 +8,7 @@
 ### SuperBadges
 
 + [Apex Specialist](https://github.com/mnunezdm/salesforce_trailhead/tree/superbadge/apexspecialist): contains my implementation of the [Apex Specialist SuperBadge](https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_apex?trailmix_creator_id=00550000006yDdKAAU&trailmix_id=prepare-for-your-salesforce-platform-developer-ii-credential)
++ [Data Integration Specialist](https://github.com/mnunezdm/salesforce_trailhead/tree/superbadge/integrationspecialist): contains my implementation of the [Data Integration Specialist](https://trailhead.salesforce.com/en/content/learn/superbadges/superbadge_integration?trailmix_creator_id=00550000006yDdKAAU&trailmix_id=prepare-for-your-salesforce-platform-developer-ii-credential)
 
 ## VS Code Plugins
 
