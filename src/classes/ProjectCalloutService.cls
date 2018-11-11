@@ -4,6 +4,7 @@ public class ProjectCalloutService {
 
     private static final String TOKEN_CUSTOMSETTING_KEY = 'ProjectServiceToken';
     private static final String NAMEDCREDENTIAL_KEY = 'callout:ProjectService';
+    private static final String REQUEST_METHOD = 'POST';
 
 	@InvocableMethod
     public static void postOpportunityToPMS(List<Id> opportunityIds){
@@ -14,29 +15,38 @@ public class ProjectCalloutService {
                            FROM Opportunity
                            WHERE Id IN :opportunityIds
                            LIMIT 1];
+        System.debug(LoggingLevel.DEBUG, 'RETRIEVED OPPORTUNITY: ' + opp);
 
         HttpRequest request = new HttpRequest();
         request.setEndpoint(NAMEDCREDENTIAL_KEY);
-        request.setMethod('POST');
+
+        request.setMethod(REQUEST_METHOD);
+
+        String token = ServiceTokens__c.getValues(TOKEN_CUSTOMSETTING_KEY).Token__c;
         request.setHeader('Content-Type', 'application/json;charset=UTF-8');
-        request.setHeader('token', ServiceTokens__c.getValues(TOKEN_CUSTOMSETTING_KEY).Token__c);
+        request.setHeader('token', token);
 
         String body = JSON.serialize(new OpportunityProjectCalloutData(opp));
         request.setBody(body);
 
-        System.debug('REQUEST BODY: ' + body);
+        System.debug(LoggingLevel.DEBUG, 'REQUEST: ' + request);
+        System.debug(LoggingLevel.DEBUG, 'REQUEST HEADERS:');
+        System.debug(LoggingLevel.DEBUG, '\t- Content-Type: application/json;charset=UTF-8');
+        System.debug(LoggingLevel.DEBUG, '\t- token: ' + token);
+        System.debug(LoggingLevel.DEBUG, 'REQUEST BODY: ' + body);
 
         HTTPResponse response = http.send(request);
+        System.debug(LoggingLevel.DEBUG, 'RESPONSE: ' + response.getStatus() + ' [' + response.getStatusCode() + ']');
 
         if (response.getStatusCode() == 201) {
-            System.debug('Callout was successfull');
+            System.debug(LoggingLevel.DEBUG, 'Callout was successfull');
             opp.StageName = CALLOUT_SUCCESSFULL;
         } else {
-            System.debug('Callout did not went as expected');
+            System.debug(LoggingLevel.ERROR, 'Callout did not went as expected');
             opp.StageName = CALLOUT_UNSUCCESSFULL;
         }
         update opp;
-        System.debug('Opportunity updated with stage: ' + opp.StageName);
+        System.debug(LoggingLevel.DEBUG, 'Opportunity updated with stage: ' + opp.StageName);
     }
 
     class OpportunityProjectCalloutData {
@@ -55,11 +65,15 @@ public class ProjectCalloutService {
         }
 
         private String formatDate(Date d) {
-            return d.year() + '-' + d.month() + '-' + d.day();
+            String formattedDate = d.year() + '-' + d.month() + '-' + d.day();
+            System.debug(LoggingLevel.FINE, 'Formatted date from \'' + d + '\' to \'' + formattedDate + '\'');
+            return formattedDate;
         }
 
         private Integer convertToInteger(Decimal value) {
-            return Integer.valueOf(String.valueOf(Math.roundToLong(value)));
+            Integer convertedValue = Integer.valueOf(String.valueOf(Math.roundToLong(value)));
+            System.debug(LoggingLevel.FINE, 'Converted decimal from \'' + value + '\' to \'' + convertedValue + '\'');
+            return convertedValue;
         }
     }
 }
