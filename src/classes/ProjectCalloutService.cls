@@ -18,6 +18,7 @@ public class ProjectCalloutService {
         HttpRequest request = new HttpRequest();
         request.setEndpoint(NAMEDCREDENTIAL_KEY);
         request.setMethod('POST');
+        request.setHeader('Content-Type', 'application/json;charset=UTF-8');
         request.setHeader('token', ServiceTokens__c.getValues(TOKEN_CUSTOMSETTING_KEY).Token__c);
 
         String body = JSON.serialize(new OpportunityProjectCalloutData(opp));
