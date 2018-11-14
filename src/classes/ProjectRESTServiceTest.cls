@@ -10,9 +10,10 @@ private class ProjectRESTServiceTest {
         String projectRef = generateRandomName();
 
         Test.startTest();
-        String result = ProjectRESTService.doPost(projectRef, generateRandomName(),
-                                                  opp.Id, System.today().addDays(-10), System.today().addDays(10),
-                                                  1000, PROJECT_STATUS);
+        String result = ProjectRESTService.postProjectData(projectRef, generateRandomName(),
+                                                           opp.Id, System.today().addDays(-10),
+                                                           System.today().addDays(10),
+                                                           1000, PROJECT_STATUS);
         Test.stopTest();
 
         System.assertEquals('OK', result, 'Invalid return value');
@@ -38,13 +39,13 @@ private class ProjectRESTServiceTest {
         String projectRef = generateRandomName();
 
         Test.startTest();
-        String result = ProjectRESTService.doPost(projectRef, generateRandomName(),
-                                                  generateRandomName(), System.today().addDays(-10),
-                                                  System.today().addDays(10),
-                                                  1000, PROJECT_STATUS);
+        String result = ProjectRESTService.postProjectData(projectRef, generateRandomName(),
+                                                           generateRandomName(), System.today().addDays(-10),
+                                                           System.today().addDays(10),
+                                                           1000, PROJECT_STATUS);
         Test.stopTest();
 
-        System.assert(result.startsWith('ERROR'), 'Invalid return value');
+        System.assert(result.startsWith('Error'), 'Invalid return value');
 
         List<Project__c> project = [SELECT Id
                                     FROM Project__c
@@ -60,13 +61,13 @@ private class ProjectRESTServiceTest {
         String projectRef = generateRandomName();
 
         Test.startTest();
-        String result = ProjectRESTService.doPost(projectRef, generateRandomName(),
-                                                  opp.Id, System.today().addDays(10),
-                                                  System.today().addDays(-10),
-                                                  1000, PROJECT_STATUS);
+        String result = ProjectRESTService.postProjectData(projectRef, generateRandomName(),
+                                                           opp.Id, System.today().addDays(10),
+                                                           System.today().addDays(-10),
+                                                           1000, PROJECT_STATUS);
         Test.stopTest();
 
-        System.assert(result.startsWith('ERROR'), 'Invalid return value');
+        System.assert(result.startsWith('Error'), 'Invalid return value');
 
         List<Project__c> project = [SELECT Id
                                     FROM Project__c
