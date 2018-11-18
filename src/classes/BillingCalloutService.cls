@@ -1,6 +1,7 @@
 public class BillingCalloutService {
     @TestVisible
     private final static String BILLABLE_STATUS = 'Billable';
+    @TestVisible
     private final static String BILLED_STATUS = 'Billed';
     @TestVisible
     private final static String SERVICE_CREDENTIALS_CUSTOMSETTING = 'BillingServiceCredential';
@@ -61,7 +62,7 @@ public class BillingCalloutService {
         }
 
         private Boolean billProject(Project__c project, ServiceCredentials__c credentials) {
-            System.debug(LoggingLevel.DEBUG, 'Preparing async for ' + project.ProjectRef__c);
+            System.debug(LoggingLevel.FINE, 'Preparing async for ' + project.ProjectRef__c);
             BillingServiceProxy.project wsdlProject = createProject(project.ProjectRef__c, project.Billable_Amount__c,
                                                                     credentials.Username__c, credentials.Password__c);
             return 'OK' == new BillingServiceProxy.InvoicesPortSoap11().billProject(wsdlProject);
