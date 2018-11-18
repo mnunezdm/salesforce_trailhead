@@ -1,13 +1,19 @@
 <aura:component>
-    <aura:attribute name="item" type="Camping_Item__c" required="true" />
+    <aura:attribute name="item" type="Camping_Item__c" required="true" default='{"Name": "hum", "Price__c": 20.00, "Quantity__c": 10, "Packed__c": false}' />
 
-    <lightning:card>
-        <lightning:formattedText title="Name Item" value="{!v.item.Name}" />
-        <br />
-        <lightning:formattedNumber value="{!v.item.Price__c}" style="currency" />
-        <br />
-        <lightning:formattedNumber value="{!v.item.Quantity__c}" style="currency" />
-        <br />
-        <lightning:input type="toggle" label="Packed__c" name="input2" checked="{!v.item.Packed__c}" />
-    </lightning:card>
+    <div class="slds-grid slds-grid_align-center">
+        <lightning:card title="Card Item" iconName="standard:forecasts" class="slds-size_8-of-12">
+            <div class="slds-grid slds-grid_vertical slds-p-around_medium">
+                <lightning:input label="Name" type="text" title="Name Item"
+                                 value="{!v.item.Name}" />
+                <lightning:input label="Price" type="number" value="{!v.item.Price__c}"
+                                 formatter="currency"/>
+                <lightning:input label="Quantity" type="number" value="{!v.item.Quantity__c}"/>
+                <lightning:input label="Packed" type="toggle" name="input2"
+                                 checked="{!v.item.Packed__c}" />
+                <lightning:button type="brand" label="Packed!" onclick="{!c.packItem}"
+                                  disabled="{!v.item.Packed__c}"/>
+            </div>
+        </lightning:card>
+    </div>
 </aura:component>
