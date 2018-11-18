@@ -20,6 +20,9 @@ public class BillingCalloutService {
         }
     }
 
+    @future(callout=true)
+    public static void notUsedMethod(){}
+
     public class QueueableCalloutDispatcher implements Queueable, Database.AllowsCallouts {
         List<Object> projects;
 
