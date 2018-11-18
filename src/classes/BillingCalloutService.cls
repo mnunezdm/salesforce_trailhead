@@ -1,7 +1,16 @@
 public class BillingCalloutService {
+    @TestVisible
     private final static String BILLABLE_STATUS = 'Billable';
+    @TestVisible
     private final static String BILLED_STATUS = 'Billed';
+    @TestVisible
     private final static String SERVICE_CREDENTIALS_CUSTOMSETTING = 'BillingServiceCredential';
+
+    @TestVisible
+    private final static String CORRECT_RESPONSE_STATUS = 'OK';
+
+    @TestVisible
+    private final static Integer SLICE_SIZE = 100;
 
     public static void callBillingService(Map<Id, Project__c> oldValues, Map<Id, Project__c> newValues) {
         System.debug(LoggingLevel.DEBUG, 'Detected a total of ' + newValues.size() + ' projects that have changed');
@@ -16,7 +25,7 @@ public class BillingCalloutService {
         }
 
         System.debug(LoggingLevel.DEBUG, 'Detected a total of ' + projectsBillable.size() + ' projects that match condition');
-        for(List<Object> slicedProjects : sliceArray(projectsBillable, 100)) {
+        for(List<Object> slicedProjects : sliceArray(projectsBillable, SLICE_SIZE)) {
             System.enqueueJob(new QueueableCalloutDispatcher(slicedProjects));
         }
     }
@@ -53,7 +62,7 @@ public class BillingCalloutService {
         }
 
         private Boolean billProject(Project__c project, ServiceCredentials__c credentials) {
-            System.debug(LoggingLevel.DEBUG, 'Preparing async for ' + project.ProjectRef__c);
+            System.debug(LoggingLevel.FINE, 'Preparing async for ' + project.ProjectRef__c);
             BillingServiceProxy.project wsdlProject = createProject(project.ProjectRef__c, project.Billable_Amount__c,
                                                                     credentials.Username__c, credentials.Password__c);
             return 'OK' == new BillingServiceProxy.InvoicesPortSoap11().billProject(wsdlProject);
