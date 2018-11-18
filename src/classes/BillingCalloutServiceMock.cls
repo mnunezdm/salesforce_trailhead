@@ -1,16 +1,18 @@
-public class BillingCalloutServiceMock implements HttpCalloutMock {
+global class BillingCalloutServiceMock implements WebServiceMock {
     private Integer statusCode;
     private String status;
 
-    public BillingCalloutServiceMock(String correctStatus) {
-        this.status = correctStatus;
+    global BillingCalloutServiceMock(String status) {
+        this.status = status;
         this.statusCode = 201;
     }
 
-    public HttpResponse respond(HttpRequest request) {
-        HttpResponse response = new HttpResponse();
-        response.setStatus(this.status);
-        response.setStatusCode(this.statusCode);
-        return response;
+    global void doInvoke(Object stub, Object request, Map<String, Object> response, String endpoint, String soapAction,
+                         String requestName, String responseNS, String responseName, String responseType) {
+
+        BillingServiceProxy.billProjectResponse_element response_x =
+                new BillingServiceProxy.billProjectResponse_element();
+        response_x.status = this.status;
+        response.put('response_x', response_x);
     }
 }

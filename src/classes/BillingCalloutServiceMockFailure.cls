@@ -1,16 +1,18 @@
-public class BillingCalloutServiceMockFailure implements HttpCalloutMock {
+global class BillingCalloutServiceMockFailure implements WebServiceMock {
     private Integer statusCode;
     private String status;
 
-    public BillingCalloutServiceMockFailure() {
-        this.status = 'UNAUTHORIZED';
-        this.statusCode = 201;
+    global BillingCalloutServiceMockFailure(String status) {
+        this.status = status;
+        this.statusCode = 400;
     }
 
-    public HttpResponse respond(HttpRequest request) {
-        HttpResponse response = new HttpResponse();
-        response.setStatus(this.status);
-        response.setStatusCode(this.statusCode);
-        return response;
+    global void doInvoke(Object stub, Object request, Map<String, Object> response, String endpoint,
+                         String soapAction, String requestName, String responseNS, String responseName,
+                         String responseType) {
+        BillingServiceProxy.billProjectResponse_element response_x =
+                new BillingServiceProxy.billProjectResponse_element();
+        response_x.status = this.status;
+        response.put('response_x', response_x);
     }
 }
