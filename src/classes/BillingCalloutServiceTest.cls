@@ -6,17 +6,91 @@ private class BillingCalloutServiceTest {
         insert project;
         insert createServiceCredentials(BillingCalloutService.SERVICE_CREDENTIALS_CUSTOMSETTING);
 
-        Test.setMock(HttpCalloutMock.class, new
-                     BillingCalloutServiceMock(BillingCalloutService.CORRECT_RESPONSE_STATUS));
+        Test.setMock(WebServiceMock.class, new BillingCalloutServiceMock(BillingCalloutService.CORRECT_RESPONSE_STATUS));
 
         Test.startTest();
         project.Status__c = BillingCalloutService.BILLABLE_STATUS;
         update project;
         Test.stopTest();
 
-        Project__c queriedProject = [SELECT Id, Status__c FROM Project__c];
+        Project__c queriedProject = [SELECT Id, Status__c
+                                     FROM Project__c
+                                     WHERE Id=:project.Id];
+
+        System.assertEquals(1, [SELECT COUNT() FROM AsyncApexJob WHERE JobType='Queueable']);
+
+        System.assertEquals(BillingCalloutService.BILLED_STATUS,
+                            queriedProject.Status__c);
+    }
+
+    @isTest
+    public static void testSingleProjectBilledError(){
+        Project__c project = createProject();
+        insert project;
+        insert createServiceCredentials(BillingCalloutService.SERVICE_CREDENTIALS_CUSTOMSETTING);
+
+        Test.setMock(WebServiceMock.class,
+                     new BillingCalloutServiceMockFailure('UNAUTHORIZED'));
+
+        Test.startTest();
+        project.Status__c = BillingCalloutService.BILLABLE_STATUS;
+        update project;
+        Test.stopTest();
+
+        Project__c queriedProject = [SELECT Id, Status__c
+                                     FROM Project__c
+                                     WHERE Id=:project.Id];
+
+        System.assertEquals(1, [SELECT COUNT() FROM AsyncApexJob WHERE JobType='Queueable']);
+
         System.assertEquals(BillingCalloutService.BILLABLE_STATUS,
                             queriedProject.Status__c);
+    }
+
+    @isTest
+    public static void testSingleProjectNotBilled(){
+        Project__c project = createProject();
+        insert project;
+        insert createServiceCredentials(BillingCalloutService.SERVICE_CREDENTIALS_CUSTOMSETTING);
+
+        Test.startTest();
+        project.Status__c = 'Running';
+        update project;
+        Test.stopTest();
+
+        Project__c queriedProject = [SELECT Id, Status__c
+                                     FROM Project__c
+                                     WHERE Id=:project.Id];
+
+        System.assertEquals(0, [SELECT COUNT() FROM AsyncApexJob WHERE JobType='Queueable']);
+
+        System.assertNotEquals(BillingCalloutService.BILLED_STATUS,
+                            queriedProject.Status__c);
+    }
+
+    @isTest
+    public static void testBulkProjectBilled(){
+        List<Project__c> projectList = createProjects(101);
+        insert projectList;
+        Map<Id, Project__c> projects = new Map<Id, Project__c>(projectList);
+
+        insert createServiceCredentials(BillingCalloutService.SERVICE_CREDENTIALS_CUSTOMSETTING);
+
+        Test.setMock(WebServiceMock.class,
+                     new BillingCalloutServiceMock(BillingCalloutService.CORRECT_RESPONSE_STATUS));
+
+        Test.startTest();
+        for(Project__c project : projects.values()) {
+            project.Status__c = BillingCalloutService.BILLABLE_STATUS;
+        }
+        update projects.values();
+        Test.stopTest();
+
+        for(Project__c project : [SELECT Id, Status__c FROM Project__c
+                                  WHERE Id IN :projects.keySet()]) {
+            System.assertEquals(BillingCalloutService.BILLED_STATUS, project.Status__c);
+        }
+        System.assertEquals(2, [SELECT COUNT() FROM AsyncApexJob WHERE JobType='Queueable']);
     }
 
     @isTest
