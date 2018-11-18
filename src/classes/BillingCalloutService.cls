@@ -1,7 +1,15 @@
 public class BillingCalloutService {
+    @TestVisible
     private final static String BILLABLE_STATUS = 'Billable';
     private final static String BILLED_STATUS = 'Billed';
+    @TestVisible
     private final static String SERVICE_CREDENTIALS_CUSTOMSETTING = 'BillingServiceCredential';
+
+    @TestVisible
+    private final static String CORRECT_RESPONSE_STATUS = 'OK';
+
+    @TestVisible
+    private final static Integer SLICE_SIZE = 100;
 
     public static void callBillingService(Map<Id, Project__c> oldValues, Map<Id, Project__c> newValues) {
         System.debug(LoggingLevel.DEBUG, 'Detected a total of ' + newValues.size() + ' projects that have changed');
@@ -16,7 +24,7 @@ public class BillingCalloutService {
         }
 
         System.debug(LoggingLevel.DEBUG, 'Detected a total of ' + projectsBillable.size() + ' projects that match condition');
-        for(List<Object> slicedProjects : sliceArray(projectsBillable, 100)) {
+        for(List<Object> slicedProjects : sliceArray(projectsBillable, SLICE_SIZE)) {
             System.enqueueJob(new QueueableCalloutDispatcher(slicedProjects));
         }
     }
