@@ -107,9 +107,11 @@
         <isSortingDisabled>false</isSortingDisabled>
         <label>projectRef</label>
         <length>128</length>
-        <required>true</required>
-        <type>Text</type>
-        <unique>true</unique>
+        <referenceTargetField>Project__c.ProjectRef__c</referenceTargetField>
+        <referenceTo>Project__c</referenceTo>
+        <relationshipLabel>invoices</relationshipLabel>
+        <relationshipName>invoices</relationshipName>
+        <type>IndirectLookup</type>
     </fields>
     <label>invoices</label>
     <listViews>
