@@ -55,9 +55,19 @@ private class BillingCalloutServiceTest {
     }
 
     private static List<Project__c> createProjects(Integer size) {
+        Account acc = new Account(Name=generateRandomName());
+        insert acc;
+
+        Opportunity opp = new Opportunity(Name=generateRandomName(),
+                                          Account=acc,
+                                          StageName='Closed/Won',
+                                          CloseDate=System.today());
+        insert opp;
         List<Project__c> projects = new List<Project__c>();
         for (Integer i = 0; i < size; i++) {
-            projects.add(createProject());
+            projects.add(new Project__c(Opportunity__c=opp.Id,
+                              ProjectRef__c='Test ' + generateRandomName(),
+                              Billable_Amount__c=generateRandomCurrency()));
         }
         return projects;
     }
