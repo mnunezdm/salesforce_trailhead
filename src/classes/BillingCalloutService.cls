@@ -10,6 +10,7 @@ public class BillingCalloutService {
             Project__c newStatus = newValues.get(id);
             if ((oldValues.get(id) == null || oldValues.get(id).Status__c != BILLABLE_STATUS)
                     && newStatus.Status__c == BILLABLE_STATUS) {
+                System.debug(LoggingLevel.FINE, 'Project \'' + newStatus.ProjectRef__c + '\' matchs precondition');
                 projectsBillable.add(newStatus);
             }
         }
@@ -33,16 +34,21 @@ public class BillingCalloutService {
         public void execute(QueueableContext QC) {
             ServiceCredentials__c credentials = ServiceCredentials__c.getInstance(SERVICE_CREDENTIALS_CUSTOMSETTING);
             List<Project__c> billedProjects = new List<Project__c>();
+            System.debug(LoggingLevel.DEBUG, 'Running sync process with a total of ' + projects.size() + ' projects');
             for (Object projectObject : projects) {
                 Project__c project = (Project__c) projectObject;
                 if (billProject(project, credentials)) {
+                    System.debug(LoggingLevel.FINE, 'Project \'' + project.ProjectRef__c + '\' billed correctly');
                     billedProjects.add(new Project__c(Id=project.Id,
                                                       Status__c=BILLED_STATUS));
+                } else {
+                    System.debug(LoggingLevel.ERROR, 'Project \'' + project.ProjectRef__c + '\' finished with errors');
                 }
             }
             if(!billedProjects.isEmpty()){
                 System.debug(LoggingLevel.DEBUG, 'Preparing to update a total of ' + billedProjects.size() + ' projects to ' + BILLED_STATUS);
                 update billedProjects;
+                System.debug(LoggingLevel.DEBUG, 'All records were updated successfully');
             }
         }
 
@@ -50,13 +56,7 @@ public class BillingCalloutService {
             System.debug(LoggingLevel.DEBUG, 'Preparing async for ' + project.ProjectRef__c);
             BillingServiceProxy.project wsdlProject = createProject(project.ProjectRef__c, project.Billable_Amount__c,
                                                                     credentials.Username__c, credentials.Password__c);
-            String status = new BillingServiceProxy.InvoicesPortSoap11().billProject(wsdlProject);
-            if(status == 'OK') {
-                return true;
-            } else {
-                System.debug(LoggingLevel.ERROR, 'Project ' + project.ProjectRef__c + ' errors');
-                return false;
-            }
+            return 'OK' == new BillingServiceProxy.InvoicesPortSoap11().billProject(wsdlProject);
         }
 
         private BillingServiceProxy.project createProject(String projectRef, Decimal amount,
@@ -74,6 +74,7 @@ public class BillingCalloutService {
     * Slices passed array in arrays of n elements
     */
     public static List<List<Object>> sliceArray (List<Object> objects, Integer numberElements) {
+        System.debug(LoggingLevel.FINE, 'Preparing to slice list of ' + objects.size() + ' in slices of ' +numberElements);
         List<List<Object>> result = new List<List<Object>>();
         List<Object> activeList;
         for (Integer counter = 0; counter < objects.size(); counter++) {
