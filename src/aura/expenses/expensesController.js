@@ -12,4 +12,5 @@
             console.log("Create expense: " + JSON.stringify(newExpense));
             helper.createExpense(component, newExpense);
         }
+    }
 })

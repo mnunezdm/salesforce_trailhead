@@ -59,4 +59,6 @@
         </lightning:layoutItem>
     </lightning:layout>
     <!-- / NEW EXPENSE FORM -->
+
+    <c:expensesList expenses="{!v.expenses}"/>
 </aura:component>
