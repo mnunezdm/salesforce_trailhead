@@ -1,4 +1,21 @@
 ({
+    doInit: function(component, event, helper) {
+        console.log('Initializing component')
+        var action = component.get("c.getExpenses")
+        action.setCallback(this, function(response) {
+            var state = response.getState()
+            if (state === "SUCCESS") {
+                var responseBody = response.getReturnValue()
+                console.log(response)
+                console.log(`Returned a total of ${responseBody.length}`)
+                component.set("v.expenses", responseBody)
+            }
+            else {
+                console.log("Failed with state: " + state)
+            }
+        })
+        $A.enqueueAction(action)
+    },
     clickCreate: function(component, event, helper) {
         var validExpense = component.find('expenseform').reduce(function (validSoFar, inputCmp) {
             // Displays error messages for invalid fields
