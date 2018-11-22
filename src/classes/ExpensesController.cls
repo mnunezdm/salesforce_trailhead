@@ -6,4 +6,11 @@ public with sharing class ExpensesController {
                        Reimbursed__c, CreatedDate
                 FROM Expense__c];
     }
+
+    @AuraEnabled
+    public static Expense__c saveExpense(Expense__c expense) {
+        // Perform isUpdatable() checking first, then
+        upsert expense;
+        return expense;
+    }
 }
