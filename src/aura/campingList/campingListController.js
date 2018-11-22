@@ -1,4 +1,17 @@
 ({
+    doInit : function(component, event, helper) {
+        var action = component.get("c.getItems")
+        action.setCallback(this, function(response) {
+            if(response.getState() === 'SUCCESS') {
+                var responseBody = response.getReturnValue()
+                console.log(`Retrieved a total of ${responseBody.length}`)
+                component.set("v.items", responseBody)
+            } else {
+                console.log('Error')
+            }
+        })
+        $A.enqueueAction(action)
+    },
 	clickCreateItem : function(component, event, helper) {
         var isFormValid = component.find("campingItemForm").reduce(function(isValid, inputCmp){
         	inputCmp.showHelpMessageIfInvalid()
