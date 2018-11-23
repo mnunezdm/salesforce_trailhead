@@ -13,7 +13,7 @@
         $A.enqueueAction(action)
     },
 	clickCreateItem : function(component, event, helper) {
-        var isFormValid = component.find("campingItemForm").reduce(function(isValid, inputCmp){
+        var isFormValid = component.find("campingForm").reduce(function(isValid, inputCmp){
         	inputCmp.showHelpMessageIfInvalid()
             return isValid && inputCmp.get("v.validity").valid
         })
