@@ -20,11 +20,9 @@
 
         if (isFormValid) {
             var newCampingItem = JSON.parse(JSON.stringify(component.get("v.newItem")))
+            newCampingItem.sobjectType = undefined
             console.log(JSON.parse(JSON.stringify(newCampingItem)), JSON.stringify(newCampingItem))
-            var campingItems = JSON.parse(JSON.stringify(component.get("v.items")))
-            campingItems.push(newCampingItem)
-            component.set("v.items",campingItems)
-            component.set("v.newItem", {'Price__c': 0, 'Packed__c': false, 'Quantity__c': 0, 'Name':'', 'sobjectType': 'Camping_Item__c'})
+            helper.createItem(component, newCampingItem)
         }
 	}
 })
