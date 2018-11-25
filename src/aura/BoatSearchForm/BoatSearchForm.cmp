@@ -5,11 +5,12 @@
     <aura:attribute name="createEnabled" type="Boolean"/>
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerEvent name="formsubmit" type="c:FormSubmit"/>
 
     <lightning:layout horizontalAlign="center">
         <lightning:layoutItem padding="around-small">
             <lightning:select class="no-label" name="select1" label="" value="{!v.selectedBoatType}">
-                <option value="">choose one...</option>
+                <option value="">All Types</option>
                 <aura:iteration items="{!v.boatTypes}" var="option">
                     <option text="{!option.Name}" value="{!option.Id}" />
                 </aura:iteration>
