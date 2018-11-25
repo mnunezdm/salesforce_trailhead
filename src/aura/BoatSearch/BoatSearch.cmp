@@ -5,6 +5,6 @@
         <c:BoatSearchForm/>
     </lightning:card>
     <lightning:card title="Matching Boats">
-        <c:BoatSearchResults/>
+        <c:BoatSearchResults aura:id="search"/>
     </lightning:card>
 </aura:component>
