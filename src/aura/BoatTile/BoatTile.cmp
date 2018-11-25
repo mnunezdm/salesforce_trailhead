@@ -1,6 +1,5 @@
 <aura:component>
     <aura:attribute name="boat" type="Boat__c" required="true" />
-    <aura:handler name="init" value="{! this}" action="{!c.doInit}" />
 
     <lightning:button class="tile" type="bare">
         <div style="{!'background-image: url(' + v.boat.Picture__c + ')'}"
