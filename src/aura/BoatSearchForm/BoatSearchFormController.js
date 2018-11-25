@@ -1,5 +1,6 @@
 ({
     doInit: function(component, event, helper) {
+        helper.detectIfCreateIsEnabled(component)
         helper.fetchBoatTypes(component)
     },
     createRecord : function(component, event, helper) {
