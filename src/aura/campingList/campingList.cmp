@@ -7,15 +7,15 @@
 
     <lightning:layout class="slds-grid slds-grid_align-center">
         <lightning:layoutItem padding="around-small" size="6">
-            <!-- CREATE NEW EXPENSE -->
-            <div aria-labelledby="newexpenseform">
+            <!-- CREATE NEW CAMPING ITEM -->
+            <div aria-labelledby="campingForm">
                 <!-- BOXED AREA -->
-                <fieldset class="slds-box slds-theme_default slds-container_small">
-                    <legend id="newexpenseform" class="slds-text-heading_small slds-p-vertical_medium">
-                        Add Expense
+                <fieldset class="slds-box slds-theme_default">
+                    <legend id="campingForm" class="slds-text-heading_small slds-p-vertical_medium">
+                        Add List Item
                     </legend>
 
-                    <!-- CREATE NEW EXPENSE FORM -->
+                    <!-- CREATE NEW CAMPING ITEM FORM -->
                     <form class="slds-form_stacked">
                         <lightning:input label="Name" type="text" title="Name Item"
                                          aura:id="campingForm" value="{!v.newItem.Name}" />
@@ -33,11 +33,11 @@
                                               variant="brand" onclick="{!c.clickCreateItem}" />
                         </div>
                     </form>
-                    <!-- / CREATE NEW EXPENSE FORM -->
+                    <!-- / CREATE NEW CAMPING ITEM FORM -->
                 </fieldset>
                 <!-- / BOXED AREA -->
             </div>
-            <!-- / CREATE NEW EXPENSE -->
+            <!-- / CREATE NEW CAMPING ITEM -->
         </lightning:layoutItem>
     </lightning:layout>
 
