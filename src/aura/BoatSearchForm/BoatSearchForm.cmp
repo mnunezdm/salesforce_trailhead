@@ -18,12 +18,10 @@
         <lightning:layoutItem padding="around-small">
             <lightning:button variant="brand" label="Search" title="Search boats" />
         </lightning:layoutItem>
-        <aura:renderIf isTrue='{!v.createEnabled}'>
+        <aura:if isTrue='{!v.createEnabled}'>
             <lightning:layoutItem padding="around-small">
                 <lightning:button label="New" title="New Boat" onclick="{!c.createRecord}" />
             </lightning:layoutItem>
-            <aura:set attribute='else'>
-            </aura:set>
-        </aura:renderIf>
+        </aura:if>
     </lightning:layout>
 </aura:component>
