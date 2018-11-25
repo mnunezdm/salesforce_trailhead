@@ -1,0 +1,16 @@
+<aura:component controller="CampingListController">
+    <aura:attribute name="items" type="Camping_Item__c[]" default="[]" />
+
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    <aura:handler name="addItem" event="c:addItemEvent" action="{!c.handleAddItem}"/>
+
+    <lightning:layout class="slds-grid slds-grid_align-center">
+        <lightning:layoutItem padding="around-small" size="6">
+            <c:campingListForm/>
+        </lightning:layoutItem>
+    </lightning:layout>
+
+    <aura:iteration items="{!v.items}" var="camping">
+        <c:campingListItem item="{!camping}" />
+    </aura:iteration>
+</aura:component>
