@@ -15,5 +15,16 @@
             defaultFieldValues
         });
         createRecordEvent.fire();
+    },
+    onFormSubmit: function(component, event, helper) {
+        var event = component.getEvent('formsubmit')
+        var boatTypeId = component.get('v.selectedBoatType')
+        event.setParams({
+                formData: {
+                    boatTypeId
+                }
+            })
+        event.fire()
+        console.log('event fired')
     }
 })

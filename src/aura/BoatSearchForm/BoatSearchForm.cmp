@@ -17,7 +17,8 @@
             </lightning:select>
         </lightning:layoutItem>
         <lightning:layoutItem padding="around-small">
-            <lightning:button variant="brand" label="Search" title="Search boats" />
+            <lightning:button variant="brand" label="Search" title="Search boats"
+                              onclick="{!c.onFormSubmit}"/>
         </lightning:layoutItem>
         <aura:if isTrue='{!v.createEnabled}'>
             <lightning:layoutItem padding="around-small">
