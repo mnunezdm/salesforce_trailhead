@@ -3,9 +3,11 @@
     <aura:attribute name="formatdate" type="Date" />
     <aura:attribute name="expense" type="Expense__c" />
 
+    <aura:registerEvent name="updateExpense" type="c:expensesItemUpdate"/>
+
+
     <lightning:card title="{!v.expense.Name}" iconName="standard:scan_card"
-                    class="{!v.expense.Reimbursed__c ?
-                           'slds-theme_success' : ''}">
+                    class="{!v.expense.Reimbursed__c ? 'slds-theme_success' : ''}">
         <aura:set attribute="footer">
             <p>Date:
                 <lightning:formattedDateTime value="{!v.formatdate}" />
@@ -22,10 +24,14 @@
             Client: {!v.expense.Client__c}
         </p>
         <p>
-            <lightning:input type="toggle" label="Reimbursed?" name="reimbursed"
-                             class="slds-p-around_small" checked="{!v.expense.Reimbursed__c}"
-                             messageToggleActive="Yes" messageToggleInactive="No"
-                             onchange="{!c.clickReimbursed}" />
+            <lightning:input type="toggle"
+                             label="Reimbursed?"
+                             name="reimbursed"
+                             class="slds-p-around_small"
+                             checked="{!v.expense.Reimbursed__c}"
+                             messageToggleActive="Yes"
+                             messageToggleInactive="No"
+                             onchange="{!c.clickReimbursed}"/>
         </p>
     </lightning:card>
 </aura:component>
