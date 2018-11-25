@@ -1,5 +1,7 @@
 <aura:component controller="BoatSearchResults">
-    <aura:attribute name="boats" type="Boat__c[]" />
+    <aura:attribute name="boats" type="Boat__c[]"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
 
     <aura:if isTrue="{! not(empty(v.boats))}">
         <!-- IT NOT EMPTY -->
@@ -8,7 +10,7 @@
                 <lightning:layoutItem padding="around-medium" size="12"
                                       smallDeviceSize="4" mediumDeviceSize="2"
                                       largeDeviceSize="1">
-                    <c:BoatTile boat="{!boat}" />
+                    <c:BoatTile boat="{!boat}"/>
                 </lightning:layoutItem>
             </aura:iteration>
         </lightning:layout>
