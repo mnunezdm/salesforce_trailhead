@@ -1,5 +1,5 @@
 ({
-    fetchBoats : function(component, boatTypeId) {
+    onSearch : function(component, boatTypeId) {
         var action = component.get('c.getBoats')
         action.setParams({boatTypeId})
         action.setCallback(this, function(response) {

@@ -1,5 +1,5 @@
 ({
     doInit: function(component, event, helper) {
-        helper.fetchBoats(component, '')
+        helper.onSearch(component, '')
     }
 })
