@@ -12,17 +12,22 @@
         })
         $A.enqueueAction(action)
     },
-	clickCreateItem : function(component, event, helper) {
-        var isFormValid = component.find("campingForm").reduce(function(isValid, inputCmp){
-        	inputCmp.showHelpMessageIfInvalid()
-            return isValid && inputCmp.get("v.validity").valid
+    handleAddItem: function(component, event, helper) {
+        console.log('EVENT HANDLED')
+        var item = event.getParam('item')
+        var action = component.get("c.saveItem")
+        action.setParams({
+            "campingItem": item
         })
-
-        if (isFormValid) {
-            var newCampingItem = JSON.parse(JSON.stringify(component.get("v.newItem")))
-            newCampingItem.sobjectType = undefined
-            console.log(JSON.parse(JSON.stringify(newCampingItem)), JSON.stringify(newCampingItem))
-            helper.createItem(component, newCampingItem)
-        }
-	}
+        action.setCallback(this, function(response) {
+            if (response.getState() === 'SUCCESS') {
+                var campingItems = component.get('v.items')
+                campingItems.push(response.getReturnValue())
+                component.set("v.items", campingItems)
+            } else {
+                alert('error at server side')
+            }
+        })
+        $A.enqueueAction(action)
+    }
 })
