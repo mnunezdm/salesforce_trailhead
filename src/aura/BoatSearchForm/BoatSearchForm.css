@@ -1,2 +1,4 @@
-.THIS {
+.THIS .no-label .slds-form-element__label {
+    display : none;
+    visibility : hidden;
 }
