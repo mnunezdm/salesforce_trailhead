@@ -1,5 +1,4 @@
-<aura:component implements="flexipage:availableForAllPageTypes" access="global"
-                controller="BoatSearchController">
+<aura:component controller="BoatSearchController">
     <aura:attribute name="boatTypes" type="BoatType__c[]" default="[]" />
     <aura:attribute name="selectedBoatType" type="BoatType__c" />
     <aura:attribute name="createEnabled" type="Boolean"/>
