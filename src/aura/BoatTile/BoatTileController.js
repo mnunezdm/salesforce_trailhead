@@ -1,8 +1,18 @@
 ({
     onBoatClick: function(component, event, helper) {
-        var event = component.getEvent('boatSelect')
+        console.log('Firing Component boatSelect Event')
+        var eventSelect = component.getEvent('boatSelect')
         var boatId = component.get('v.boat').Id
-        event.setParams({boatId})
-        event.fire()
+        eventSelect.setParams({boatId})
+        eventSelect.fire()
+
+        console.log('Firing Application boatSelected Event')
+        var eventSelected = $A.get('e.c:boatSelected')
+        var boat = component.get('v.boat')
+        console.log('boat...', boat.Id)
+        eventSelected.setParams({boat})
+        eventSelected.fire()
+
+        console.log('All events fired')
     }
 })
