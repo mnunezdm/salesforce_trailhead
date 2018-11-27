@@ -3,6 +3,7 @@
     <aura:attribute name="selected" type="Boolean" default="false"/>
 
     <aura:registerEvent name="boatSelect" type="c:BoatSelect"/>
+    <aura:registerEvent name="boatSelected" type="c:BoatSelected"/>
 
     <lightning:button type="bare" class="{!v.selected?'tile selected':'tile'}"
                       onclick="{!c.onBoatClick}">

@@ -4,7 +4,6 @@
         helper.fetchBoatTypes(component)
     },
     createRecord : function(component, event, helper) {
-        // event.force:createRecord
         var createRecordEvent = $A.get("e.force:createRecord");
         var selectedType = component.get('v.selectedBoatType')
         if (selectedType) {
@@ -25,6 +24,5 @@
                 }
             })
         event.fire()
-        console.log('event fired')
     }
 })

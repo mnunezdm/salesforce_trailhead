@@ -1,11 +1,10 @@
 ({
     detectIfCreateIsEnabled : function(component) {
         var isEnabled = Boolean($A.get("e.force:createRecord"))
-        console.log(isEnabled)
         if (isEnabled) {
-            console.log('INFO: Boat Creation is enabled')
+            console.log('BoatSearchFormHelper-INFO: Boat Creation is enabled')
         } else {
-            console.log('INFO: Boat Creation is NOT enabled')
+            console.log('BoatSearchFormHelper-INFO: Boat Creation is NOT enabled')
         }
         component.set('v.createEnabled', isEnabled)
     },
@@ -14,10 +13,10 @@
         action.setCallback(this, function(response) {
             if (response.getState() === 'SUCCESS') {
                 var boatTypes = response.getReturnValue()
-                console.log(`SUCCESS: fetching boat types ${boatTypes.length}`)
+                console.log(`BoatSearchFormHelper-SUCCESS: fetching boat types ${boatTypes.length}`)
                 component.set('v.boatTypes', boatTypes)
             } else {
-                console.log('ERROR: fetching boat types')
+                console.log('BoatSearchFormHelper-ERROR: fetching boat types')
             }
         })
         $A.enqueueAction(action)
