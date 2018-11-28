@@ -1,0 +1,17 @@
+<aura:component>
+    <aura:attribute type="BoatReview__c" name="boatReview" />
+    <aura:attribute type="Boat__c" name="boat"/>
+
+    <div class="slds-grid slds-grid_vertical slds-p-horizontal_medium">
+        <lightning:input label="Title" type="text" value="{!v.boatReview.Name}"
+                         class="slds-m-vertical_small" required="true"/>
+        <lightning:inputRichText label="Description:" value="{!v.boatReview.Comment__c}"
+                                 placeholder="Comment" disabledCategories="FORMAT_FONT"
+                                 labelVisible="true" class="slds-m-vertical_small"/>
+        <!-- RATING GOES HERE -->
+        <div class="slds-m-vertical_small">
+            <lightning:button class="slds-align_absolute-center" iconName="utility:save"
+                              iconPosition="left" label="Submit" onclick="{!c.onSave}" />
+        </div>
+    </div>
+</aura:component>

@@ -24,7 +24,7 @@
                 TODO
             </lightning:tab>
             <lightning:tab label="Add Review">
-                TODO
+                <c:AddBoatReview boat="{!v.boat}"/>
             </lightning:tab>
         </lightning:tabset>
     </aura:if>
