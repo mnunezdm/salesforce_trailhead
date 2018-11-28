@@ -2,6 +2,18 @@
     <aura:attribute type="BoatReview__c" name="boatReview" />
     <aura:attribute type="Boat__c" name="boat"/>
 
+    <aura:attribute type="Id" name="boatReviewId" />
+    <aura:attribute type="String[]" name="fields" default="['Id', 'Name', 'Comment__c', 'Boat__c']" />
+    <aura:attribute type="Object" name="errors" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+
+    <aura:registerEvent name="reviewAdded" type="c:BoatReviewAdded"/>
+
+    <force:recordData aura:id="service" targetFields="{!v.boatReview}" fields="{!v.fields}"
+                      recordUpdated="{!c.onRecordUpdated}" targetError="{!v.errors}"
+                      recordId="{!v.boatReviewId}" />
+
     <div class="slds-grid slds-grid_vertical slds-p-horizontal_medium">
         <lightning:input label="Title" type="text" value="{!v.boatReview.Name}"
                          class="slds-m-vertical_small" required="true"/>
