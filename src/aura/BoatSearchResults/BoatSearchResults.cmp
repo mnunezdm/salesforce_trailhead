@@ -15,7 +15,7 @@
             <aura:iteration items="{!v.boats}" var="boat">
                 <lightning:layoutItem padding="around-medium" size="12"
                                       smallDeviceSize="4" mediumDeviceSize="2"
-                                      largeDeviceSize="1">
+                                      largeDeviceSize="2">
                     <c:BoatTile boat="{!boat}" aura:id="boat"
                                 selected="{!boat.Id == v.selectedBoatId}"/>
                 </lightning:layoutItem>
