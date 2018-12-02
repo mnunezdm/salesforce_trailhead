@@ -2,4 +2,10 @@
     <aura:attribute name="value" type="Integer" default="0" />
     <aura:attribute name="readonly" type="Boolean" default="false" />
 
+    <aura:handler name="change" value="{!v.value}" action="{!c.onValueChange}"/>
+
+    <ltng:require styles="/resource/fivestar/rating.css" scripts="/resource/fivestar/rating.js"
+                  afterScriptsLoaded="{!c.afterScriptsLoaded}" />
+
+    <ul aura:id="ratingarea" class="{! (v.readonly==false)? 'c-rating': 'readonly c-rating'}"></ul>
 </aura:component>
