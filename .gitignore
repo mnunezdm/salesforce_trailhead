@@ -17,4 +17,3 @@ artifacts_folder
 force.json
 **/soql/**/*
 **/coverage/**/*
-resource-bundles
