@@ -1,4 +1,4 @@
-onBoatReviewAdded({
+({
     onBoatSelected : function(component, event, helper) {
         var boat = event.getParam('boat')
 
