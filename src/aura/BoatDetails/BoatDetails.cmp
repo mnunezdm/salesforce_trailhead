@@ -14,17 +14,18 @@
                       recordUpdated="{!c.onRecordUpdated}"/>
 
     <aura:handler event="c:BoatSelected" action="{!c.onBoatSelected}"/>
+    <aura:handler name="BoatReviewAdded" event="c:BoatReviewAdded" action="{!c.onBoatReviewAdded}"/>
 
     <aura:if isTrue="{! !empty(v.boat)}">
-        <lightning:tabset>
-            <lightning:tab label="Details">
+        <lightning:tabset aura:id="details">
+            <lightning:tab label="Details" id="details">
                 <c:BoatDetail boat="{!v.boat}"/>
             </lightning:tab>
-            <lightning:tab label="Reviews">
+            <lightning:tab label="Reviews" id="boatreviewtab">
                 TODO
             </lightning:tab>
-            <lightning:tab label="Add Review">
-                TODO
+            <lightning:tab label="Add Review" id="addreview">
+                <c:AddBoatReview boat="{!v.boat}"/>
             </lightning:tab>
         </lightning:tabset>
     </aura:if>
