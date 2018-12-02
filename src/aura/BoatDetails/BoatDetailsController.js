@@ -14,11 +14,6 @@ onBoatReviewAdded({
     },
     onBoatReviewAdded: function(component, event, helper) {
         console.log('BoatDetailsController-INFO: Boat review added')
-        component.set("v.tabId", "boatreviewtab")
-    },
-    onTabChange: function(component, event, helper) {
-        //Display content on the Item Three tab
-        var selected = component.get("v.tabId")
-        component.find("tabs").set("v.selectedTabId", selected)
+        component.find("details").set("v.selectedTabId", "boatreviewtab")
     }
 })

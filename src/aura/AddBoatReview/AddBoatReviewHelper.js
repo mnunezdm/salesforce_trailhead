@@ -9,8 +9,7 @@
     },
     setRecordId : function(component, helper) {
         var record = component.get('v.boatReview')
-        var boat = component.get('boat')
-        console.log(boar)
+        var boat = component.get('v.boat')
         record.Boat__c = boat.Id
         component.set('v.record', record)
     },
@@ -32,7 +31,7 @@
     },
     notifyReviewAdded : function(component){
         console.log('AddBoatReviewHelper-INFO: Firing event')
-        var event = component.getEvent('reviewAdded')
+        var event = component.getEvent('BoatReviewAdded')
         event.fire()
     }
 })

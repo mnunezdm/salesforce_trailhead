@@ -1,7 +1,6 @@
 <aura:component implements="flexipage:availableForAllPageTypes" access="global">
     <aura:attribute name="boat" type="Boat__c"/>
     <aura:attribute name="id" type="Id"/>
-    <aura:attribute name="tabId" type="String"/>
 
     <aura:attribute name="fields" type="String[]" default="['Id', 'Name', 'Description__c', 'Price__c', 'Length__c',
                                                             'Contact__r.Name', 'Contact__r.Email', 'Contact__r.HomePhone',
@@ -15,11 +14,10 @@
                       recordUpdated="{!c.onRecordUpdated}"/>
 
     <aura:handler event="c:BoatSelected" action="{!c.onBoatSelected}"/>
-    <aura:handler name="reviewAdded" event="c:BoatReviewAdded" action="{!c.onBoatReviewAdded}"/>
-    <aura:handler name="change" value="{!v.tabId}" action="{!c.onTabChange}"/>
+    <aura:handler name="BoatReviewAdded" event="c:BoatReviewAdded" action="{!c.onBoatReviewAdded}"/>
 
     <aura:if isTrue="{! !empty(v.boat)}">
-        <lightning:tabset>
+        <lightning:tabset aura:id="details">
             <lightning:tab label="Details" id="details">
                 <c:BoatDetail boat="{!v.boat}"/>
             </lightning:tab>
