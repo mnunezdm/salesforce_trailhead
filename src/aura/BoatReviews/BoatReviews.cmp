@@ -9,24 +9,25 @@
         <ui:scrollerWrapper class="scrollerSize">
             <aura:if isTrue="{! !empty(v.boatReviews)}">
                 <ul class="slds-feed__list">
-                    <aura:iteration items="{!v.boatReviews}" var="review">
+                    <aura:iteration items="{!v.boatReviews}" var="boatReview">
                         <li class="slds-feed__item">
                             <article class="slds-post">
                                 <header class="slds-post__header slds-media">
                                     <div class="slds-media__figure">
                                         <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
                                             <img alt="{!boatReview.CreatedBy.Name}"
-                                                 src="{!boatReview.SmallPhotoUrl}"
+                                                 src="{!boatReview.CreatedBy.SmallPhotoUrl}"
                                                  title="{!boatReview.CreatedBy.Name + 'avatar'}" />
                                         </a>
                                     </div>
                                     <div class="slds-media__body">
                                         <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
                                             <p>
-                                                <a aura:id="reviewer" href="javascript:void(0);"
-                                                   title="{!boatReview.CreatedBy.Name}"
-                                                   data-userId="{!boatReview.CreatedBy.Id}"
-                                                   onclick="{!c.onUserInfoClick}">{!boatReview.CreatedBy.Name}</a>
+                                                <a href="javascript:void(0)"
+                                                   onclick="{!c.onUserInfoClick}"
+                                                   data-userid="{!boatReview.CreatedBy.Id}">
+                                                   {!boatReview.CreatedBy.Name}
+                                                </a>
                                             </p>
                                         </div>
 
