@@ -7,7 +7,9 @@
             // helper.showMessage("Success", "The record has been saved successfully.")
             var toast = $A.get("e.force:showToast")
             if (toast) {
-                toast.setParams({'title': 'Success', 'message': 'The record has been saved successfully'});
+                toast.setParams({'title': 'Success',
+                                 'message': 'The record has been saved successfully',
+                                 'type': 'success'});
                 toast.fire();
             } else {
                 console.log('AddBoatReviewController-INFO: toast not supported using alert')
@@ -26,7 +28,9 @@
             // helper.showMessage("Success", "The record has been updated successfully")
             var toast = $A.get("e.force:showToast")
             if (toast) {
-                toast.setParams({'title': 'Success', 'message': 'The record has been updated successfully'});
+                toast.setParams({'title': 'Success',
+                                 'message': 'The record has been updated successfully',
+                                 'type': 'success'});
                 toast.fire();
             } else {
                 console.log('AddBoatReviewController-INFO: toast not supported using alert')
