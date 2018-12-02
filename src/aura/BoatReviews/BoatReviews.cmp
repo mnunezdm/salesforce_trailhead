@@ -23,11 +23,14 @@
                                     <div class="slds-media__body">
                                         <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
                                             <p>
-                                                <a href="javascript:void(0)"
+                                                <a href="javascript:void(0);"
+                                                   title="{!boatReview.CreatedBy.Name}"
                                                    onclick="{!c.onUserInfoClick}"
                                                    data-userid="{!boatReview.CreatedBy.Id}">
-                                                   {!boatReview.CreatedBy.Name}
+                                                    {!boatReview.CreatedBy.Name}
                                                 </a>
+                                                —
+                                                {!boatReview.CreatedBy.CompanyName}
                                             </p>
                                         </div>
 
