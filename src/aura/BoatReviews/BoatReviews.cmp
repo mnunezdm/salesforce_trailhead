@@ -1,0 +1,67 @@
+<aura:component controller="BoatReviews">
+    <aura:attribute name="boat" type="Boat__c" required="true" />
+    <aura:attribute name="boatReviews" type="BoatReview__c[]" access="private" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.boat}" action="{!c.doInit}"/>
+
+    <aura:method name="refresh" action="{!c.doInit}" />
+
+    <div class="slds-feed">
+        <ui:scrollerWrapper class="scrollerSize">
+            <aura:if isTrue="{! !empty(v.boatReviews)}">
+                <ul class="slds-feed__list">
+                    <aura:iteration items="{!v.boatReviews}" var="boatReview">
+                        <li class="slds-feed__item">
+                            <article class="slds-post">
+                                <header class="slds-post__header slds-media">
+                                    <div class="slds-media__figure">
+                                        <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
+                                            <img alt="{!boatReview.CreatedBy.Name}"
+                                                 src="{!boatReview.CreatedBy.SmallPhotoUrl}"
+                                                 title="{!boatReview.CreatedBy.Name + 'avatar'}" />
+                                        </a>
+                                    </div>
+                                    <div class="slds-media__body">
+                                        <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
+                                            <p>
+                                                <a href="javascript:void(0);"
+                                                   title="{!boatReview.CreatedBy.Name}"
+                                                   onclick="{!c.onUserInfoClick}"
+                                                   data-userid="{!boatReview.CreatedBy.Id}">
+                                                    {!boatReview.CreatedBy.Name}
+                                                </a>
+                                                —
+                                                {!boatReview.CreatedBy.CompanyName}
+                                            </p>
+                                        </div>
+
+                                        <lightning:formattedDateTime value="{!boatReview.LastModifiedDate}"
+                                                                     year="numeric"
+                                                                     month="short"
+                                                                     day="2-digit"
+                                                                     hour="2-digit"
+                                                                     minute="2-digit"
+                                                                     second="2-digit" />
+                                    </div>
+                                </header>
+                                <div class="slds-post__content slds-text-title_caps">
+                                    <p>{!boatReview.Name}</p>
+                                </div>
+                                <div class="slds-post__content slds-text-longform">
+                                    <ui:outputRichText value="{!boatReview.Comment__c}"></ui:outputRichText>
+                                </div>
+                            </article>
+                        </li>
+                    </aura:iteration>
+                </ul>
+                <aura:set attribute="else">
+                    <lightning:layoutItem class="slds-align_absolute-center"
+                                          flexibility="auto" padding="around-small">
+                        <ui:outputText value="No reviews available" />
+                    </lightning:layoutItem>
+                </aura:set>
+            </aura:if>
+        </ui:scrollerWrapper>
+    </div>
+</aura:component>

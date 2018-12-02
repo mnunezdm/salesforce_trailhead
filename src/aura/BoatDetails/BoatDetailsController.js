@@ -11,9 +11,17 @@
     onRecordUpdated : function(component, event, helper) {
         var updatedRecord = JSON.parse(JSON.stringify(component.get('v.boat')))
         console.log('BoatDetailsController-INFO', updatedRecord)
+        var reviewsComponent = component.find('reviews')
+        if(reviewsComponent){
+            reviewsComponent.refresh()
+        }
     },
     onBoatReviewAdded: function(component, event, helper) {
         console.log('BoatDetailsController-INFO: Boat review added')
         component.find("details").set("v.selectedTabId", "boatreviewtab")
+        var reviewsComponent = component.find('reviews')
+        if(reviewsComponent){
+            reviewsComponent.refresh()
+        }
     }
 })
