@@ -3,6 +3,8 @@
     <aura:attribute name="boatReviews" type="BoatReview__c[]" access="private" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:handler name="change" value="{!v.boat}" action="{!c.doInit}"/>
+
     <aura:method name="refresh" action="{!c.doInit}" />
 
     <div class="slds-feed">
