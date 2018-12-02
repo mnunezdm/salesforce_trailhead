@@ -1,7 +1,10 @@
 <aura:component>
-    <aura:attribute type="BoatReview__c" name="boatReview" />
-    <aura:attribute type="Boat__c" name="boat"/>
+    <aura:attribute name="boatReview" type="BoatReview__c" />
+    <aura:attribute name="boat" type="Boat__c" />
 
+    <aura:attribute name="boatReviewId" type="Id" access="private" />
+    <aura:attribute name="fields" type="String[]" default="['Id', 'Name', 'Comment__c', 'Boat__c']"
+                    access="private" />
     <aura:attribute name="recordError" type="Object" access="private" />
 
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
@@ -18,7 +21,7 @@
                          name="title" />
         <lightning:inputRichText label="Description:" value="{!v.boatReview.Comment__c}"
                                  placeholder="Comment" disabledCategories="FORMAT_FONT"
-                                 labelVisible="true" class="slds-m-vertical_small"/>
+                                 labelVisible="true" class="slds-m-vertical_small" />
         <!-- RATING GOES HERE -->
         <div class="slds-m-vertical_small">
             <lightning:button class="slds-align_absolute-center" iconName="utility:save"
