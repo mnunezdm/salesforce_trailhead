@@ -49,7 +49,11 @@
                                     <p>{!boatReview.Name}</p>
                                 </div>
                                 <div class="slds-post__content slds-text-longform">
-                                    <ui:outputRichText value="{!boatReview.Comment__c}"></ui:outputRichText>
+                                    <ui:outputRichText value="{!boatReview.Comment__c}" />
+                                </div>
+                                <div class="slds-post__content slds-list_horizontal">
+                                    <c:FiveStarRating value="{!boatReview.Rating__c}"
+                                                      readonly="true" />
                                 </div>
                             </article>
                         </li>
