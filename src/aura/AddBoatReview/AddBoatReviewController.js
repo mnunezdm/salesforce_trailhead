@@ -4,12 +4,38 @@
     },
     onSave : function(component, event, helper) {
         component.find("service").saveRecord(saveResult => {
-            helper.showMessage("Success", "The record has been saved successfully.")
+            // helper.showMessage("Success", "The record has been saved successfully.")
+            var toast = $A.get("e.force:showToast")
+            if (toast) {
+                toast.setParams({'title': 'Success', 'message': 'The record has been saved successfully'});
+                toast.fire();
+            } else {
+                console.log('AddBoatReviewController-INFO: toast not supported using alert')
+                alert(`${title}: ${message}`)
+            }
             helper.onInit(component, event, helper)
-            helper.notifyReviewAdded(component)
+            // helper.notifyReviewAdded(component)
+            console.log('AddBoatReviewController-INFO: Firing event')
+            var event = component.getEvent('BoatReviewAdded')
+            event.fire()
         })
     },
     onRecordUpdated : function(component, event, helper) {
-        helper.showMessage("Success", "The record has been updated successfully.")
+        var eventParams = event.getParams();
+        if (eventParams.changeType === 'CHANGED') {
+            // helper.showMessage("Success", "The record has been updated successfully")
+            var toast = $A.get("e.force:showToast")
+            if (toast) {
+                toast.setParams({'title': 'Success', 'message': 'The record has been updated successfully'});
+                toast.fire();
+            } else {
+                console.log('AddBoatReviewController-INFO: toast not supported using alert')
+                alert(`${title}: ${message}`)
+            }
+            helper.onInit(component, event, helper)
+            helper.notifyReviewAdded(component)
+        } else {
+            console.log(`AddBoatReviewController-INFO: Change was of type: ${eventParams.changeType}`)
+        }
     }
 })
