@@ -12,24 +12,37 @@
                         <li class="slds-feed__item">
                             <article class="slds-post">
                                 <header class="slds-post__header slds-media">
+                                    <div class="slds-media__figure">
+                                        <a href="javascript:void(0);" class="slds-avatar slds-avatar_circle slds-avatar_large">
+                                            <img alt="{!boatReview.CreatedBy.Name}"
+                                                 src="{!boatReview.SmallPhotoUrl}"
+                                                 title="{!boatReview.CreatedBy.Name + 'avatar'}" />
+                                        </a>
+                                    </div>
                                     <div class="slds-media__body">
                                         <div class="slds-grid slds-grid_align-spread slds-has-flexi-truncate">
                                             <p>
-                                                <a href="javascript:void(0);" title="Jason Rodgers">
-                                                    Jason Rogers
-                                                </a>
+                                                <a aura:id="reviewer" href="javascript:void(0);"
+                                                   title="{!boatReview.CreatedBy.Name}"
+                                                   data-userId="{!boatReview.CreatedBy.Id}"
+                                                   onclick="{!c.onUserInfoClick}">{!boatReview.CreatedBy.Name}</a>
                                             </p>
                                         </div>
-                                        <p class="slds-text-body_small">
-                                            <a href="javascript:void(0);" title="Click for single-item view of this post"
-                                            class="slds-text-link_reset">5 days
-                                                Ago
-                                            </a>
-                                        </p>
+
+                                        <lightning:formattedDateTime value="{!boatReview.LastModifiedDate}"
+                                                                     year="numeric"
+                                                                     month="short"
+                                                                     day="2-digit"
+                                                                     hour="2-digit"
+                                                                     minute="2-digit"
+                                                                     second="2-digit" />
                                     </div>
                                 </header>
+                                <div class="slds-post__content slds-text-title_caps">
+                                    <p>{!boatReview.Name}</p>
+                                </div>
                                 <div class="slds-post__content slds-text-longform">
-                                    <p>Lorem ipsum....</p>
+                                    <ui:outputRichText value="{!boatReview.Comment__c}"></ui:outputRichText>
                                 </div>
                             </article>
                         </li>
