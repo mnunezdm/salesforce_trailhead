@@ -2,7 +2,7 @@ public class Product2Extension {
 
     public List<Product2> productsToInsert {get;set;}
 
-    public Product2Extension(){
+    public Product2Extension(ApexPages.StandardController controller){
         productsToInsert = new List<Product2>();
         addRows();
     }
