@@ -15,20 +15,20 @@
                 </apex:pageBlockButtons>
 
                 <apex:pageBlockTable value="{!productsToInsert}" var="p" id="orderItemTable" >
-                    <apex:column headerValue="Name" >
+                    <apex:column headerValue="{!$ObjectType.Product2.fields.Name.Label}" >
                         <apex:inputText value="{!p.Name}" />
                     </apex:column>
-                    <apex:column headerValue="Family" >
+                    <apex:column headerValue="{!$ObjectType.Product2.fields.Family.Label}" >
                         <apex:selectList value="{!p.Family}" size="1" multiselect="false" >
                         </apex:selectList>
                     </apex:column>
-                    <apex:column headerValue="Active" >
+                    <apex:column headerValue="{!$ObjectType.Product2.fields.isActive.Label}" >
                         <apex:inputField value="{!p.isActive}" />
                     </apex:column>
-                    <apex:column headerValue="UnitPrice" >
+                    <apex:column headerValue="{!$ObjectType.PriceBookEntry.fields.UnitPrice.Label}" >
                         <inputText value="UnitPrice" />
                     </apex:column>
-                    <apex:column headerValue="Init Inventory" >
+                    <apex:column headerValue="{!$ObjectType.Product2.fields.Initial_Inventory__c.Label}" >
                         <apex:inputField value="{!p.Initial_Inventory__c}" />
                     </apex:column>
                 </apex:pageBlockTable>
