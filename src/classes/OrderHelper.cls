@@ -26,14 +26,25 @@ public without sharing class OrderHelper {
     **/
     public static void rollUpOrderItems(Set<Id> activatedOrderIds){
         //ToDo: Declare a Map named "productMap" of Ids to Product2 records
+        Map<Id, Product2> productMap = new Map<Id, Product2>();
 
         //ToDo: Loop through a query of OrderItems related to the activatedOrderIds
-
-            //ToDo: Populate the map with the Id of the related Product2 as the key and Product2 record as the value
-
+        for (OrderItem item : [SELECT Id, Product2Id, Product2.Quantity_Ordered__c, Quantity
+                               FROM OrderItem
+                               WHERE OrderId IN :activatedOrderIds]) {
+            productMap.put(item.Product2Id, item.Product2);
+        }
         //ToDo: Loop through a query that aggregates the OrderItems related to the Products in the ProductMap keyset
+        for(AggregateResult quantitySum : [SELECT Product2Id, SUM(Quantity)
+                                           FROM OrderItem
+                                           WHERE Product2Id IN :productMap.keySet()
+                                           GROUP BY Product2Id]) {
+            Decimal quantity = (Decimal) quantitySum.get('expr0');
+            Id productId = (Id) quantitySum.get('Product2Id');
+            productMap.get(productId).Quantity_Ordered__c = quantity;
+        }
 
         //ToDo: Perform an update on the records in the productMap
+        update productMap.values();
     }
-
 }
