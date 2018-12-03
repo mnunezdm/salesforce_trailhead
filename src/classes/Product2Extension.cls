@@ -18,8 +18,24 @@ public class Product2Extension {
     }
 
     public PageReference Save(){
+        SavePoint savepoint = Database.setSavePoint();
         try {
-            // insert productsToInsert;
+            List<Product2> products = new List<Product2>();
+            List<PricebookEntry> pbes = new List<PricebookEntry>();
+
+            for (ProductWrapper pw : productsToInsert) {
+                products.add(pw.productRecord);
+                pbes.add(pw.pricebookEntryRecord);
+            }
+
+            insert products;
+
+            for (Integer cont = 0; cont < products.size(); cont++) {
+                pbes[cont].Product2Id = products[cont].Id;
+                pbes[cont].Pricebook2Id = Constants.STANDARD_PRICEBOOK_ID;
+            }
+
+            insert pbes;
 
             //If successful clear the list and display an informational message
             apexPages.addMessage(new ApexPages.message(ApexPages.Severity.INFO,
@@ -27,7 +43,9 @@ public class Product2Extension {
             productsToInsert.clear();   //Do not remove
             addRows();  //Do not remove
         } catch (Exception e){
-
+            apexPages.addMessage(new ApexPages.message(ApexPages.Severity.ERROR,
+                                                       'Errors... ' + e));
+            Database.rollback(savepoint);
         }
         return null;
     }
