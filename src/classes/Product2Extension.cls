@@ -8,7 +8,7 @@ public class Product2Extension {
     }
 
     public void AddRows(){
-        for ( Integer i=0; i<2; i++ ){
+        for (Integer i=0; i < Constants.DEFAULT_ROWS; i++){
             productsToInsert.add( new Product2() );
         }
     }
