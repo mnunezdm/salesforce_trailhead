@@ -16,19 +16,19 @@
 
                 <apex:pageBlockTable value="{!productsToInsert}" var="p" id="orderItemTable" >
                     <apex:column headerValue="{!$ObjectType.Product2.fields.Name.Label}" >
-                        <apex:inputText value="{!p.Name}" />
+                        <apex:inputText value="{!p.productRecord.Name}" />
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Product2.fields.Family.Label}" >
-                        <apex:inputField value="{!p.Family}" />
+                        <apex:inputField value="{!p.productRecord.Family}" />
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Product2.fields.isActive.Label}" >
-                        <apex:inputField value="{!p.isActive}" />
+                        <apex:inputField value="{!p.productRecord.isActive}" />
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.PriceBookEntry.fields.UnitPrice.Label}" >
-                        <inputText value="UnitPrice" />
+                        <inputText value="{!p.productRecord.Initial_Inventory__c}" />
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Product2.fields.Initial_Inventory__c.Label}" >
-                        <apex:inputField value="{!p.Initial_Inventory__c}" />
+                        <apex:inputField value="{!p.productRecord.Initial_Inventory__c}" />
                     </apex:column>
                 </apex:pageBlockTable>
             </apex:pageBlock>
