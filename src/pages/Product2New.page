@@ -19,8 +19,7 @@
                         <apex:inputText value="{!p.Name}" />
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Product2.fields.Family.Label}" >
-                        <apex:selectList value="{!p.Family}" size="1" multiselect="false" >
-                        </apex:selectList>
+                        <apex:inputField value="{!p.Family}" />
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Product2.fields.isActive.Label}" >
                         <apex:inputField value="{!p.isActive}" />
