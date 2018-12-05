@@ -30,7 +30,6 @@ public class Product2Extension {
         SavePoint savepoint = Database.setSavePoint();
         try {
             List<Product2> products = new List<Product2>();
-            List<PricebookEntry> pbes = new List<PricebookEntry>();
 
             for (ProductWrapper pw : productsToInsert) {
                 if(hasAllFieldsPopulated(pw.productRecord, pw.pricebookEntryRecord)) {
