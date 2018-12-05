@@ -33,8 +33,10 @@ public class Product2Extension {
             List<PricebookEntry> pbes = new List<PricebookEntry>();
 
             for (ProductWrapper pw : productsToInsert) {
-                products.add(pw.productRecord);
-                pbes.add(pw.pricebookEntryRecord);
+                if(hasAllFieldsPopulated(pw.productRecord, pw.pricebookEntryRecord)) {
+                    products.add(pw.productRecord);
+                    pbes.add(pw.pricebookEntryRecord);
+                }
             }
 
             insert products;
@@ -57,6 +59,13 @@ public class Product2Extension {
             Database.rollback(savepoint);
         }
         return null;
+    }
+
+    private static Boolean hasAllFieldsPopulated(Product2 product, PricebookEntry pbe) {
+        return product.Name != null && !product.Name.isWhitespace()
+                && product.Family != Constants.SELECT_ONE
+                && pbe.UnitPrice != null && pbe.UnitPrice != 0
+                && product.Initial_Inventory__c != null && product.Initial_Inventory__c != 0;
     }
 
     public class ProductWrapper {
