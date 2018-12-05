@@ -19,7 +19,10 @@
                         <apex:inputField value="{!p.productRecord.Name}" />
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Product2.fields.Family.Label}" >
-                        <apex:inputField value="{!p.productRecord.Family}" />
+                        <!-- <apex:inputField value="{!p.productRecord.Family}" /> -->
+                        <apex:selectList value="{!p.productRecord.Family}" size="1">
+                            <apex:selectOptions value="{!familyOptions}"/>
+                        </apex:selectList>
                     </apex:column>
                     <apex:column headerValue="{!$ObjectType.Product2.fields.isActive.Label}" >
                         <apex:inputField value="{!p.productRecord.isActive}" />
