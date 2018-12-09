@@ -11,9 +11,6 @@ public without sharing class ChartHelper {
             cht.add(new ChartData((String) ar.get('Family'),
                                   (Decimal) ar.get('expr0')));
         }
-        //ToDo: Perform a calculation that aggregates active Products that have a positive Quantity_Remaining__c
-        //  And return a list of chartData
-        //  Where the name is the Product Family and the Qty is the sum of the Quantity_Remaining__c
         return cht;
     }
 
