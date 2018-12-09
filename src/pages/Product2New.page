@@ -4,7 +4,19 @@
     <apex:form id="form">
         <apex:actionRegion>
             <apex:pageBlock title="Existing Inventory">
-                Chart goes here
+                <apex:chart data="{!inventory}" height="400" width="500">
+                    <apex:axis type="Category" position="left" fields="name"
+                               title="Inventory">
+                        <apex:chartLabel rotate="315" />
+                    </apex:axis>
+                    <apex:axis type="Numeric" position="bottom" title="Total Elements"
+                               grid="true" fields="val" dashSize="2">
+                        <apex:chartLabel />
+                    </apex:axis>
+                    <apex:barSeries orientation="horizontal" axis="bottom"
+                                    yField="name" xField="val"
+                                    title="Elements" />
+                </apex:chart>
             </apex:pageBlock>
             <apex:pageBlock title="New Products">
                 <apex:pageBlockButtons location="top">
