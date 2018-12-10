@@ -18,7 +18,7 @@ public class Product2Helper {
      * @param List<Product2> newList
      * @param List<Product2> oldList
     **/
-    public static void AfterUpdate(){
+    public static void AfterUpdate(List<Product2> newList, List<Product2> oldList){
         //ToDo: Declare a List of Product2 records named needsAnnouncement
 
         //ToDo: Declare a Map of Strings to Inventory_Setting__mdt records
