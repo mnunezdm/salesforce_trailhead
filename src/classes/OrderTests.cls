@@ -23,6 +23,28 @@ public class OrderTests {
         System.assertEquals(oi.Quantity, queriedProduct.Quantity_Ordered__c);
     }
 
+    @isTest
+    public static void orderMultiItemsTest() {
+        Id standardPriceBookId = Test.getStandardPricebookId();
+        Product2 prod = createProduct();
+        PricebookEntry pbe = createPriceBookEntry(prod, standardPriceBookId);
+        insert pbe;
+        Order ord = createOrder(standardPriceBookId);
+        insert ord;
+        OrderItem oi = createOrderItem(ord, pbe);
+        insert oi;
+
+        Test.startTest();
+        ord.Status = Constants.ACTIVATED_ORDER_STATUS;
+        update ord;
+        Test.stopTest();
+
+        Product2 queriedProduct = [SELECT Quantity_Ordered__c
+                                   FROM Product2
+                                   WHERE Id = :prod.Id];
+        System.assertEquals(oi.Quantity, queriedProduct.Quantity_Ordered__c);
+    }
+
     private static OrderItem createOrderItem(Order ord, PricebookEntry pbe) {
         OrderItem oi = new OrderItem(OrderId=ord.Id,
                                      PricebookEntryId=pbe.Id,
