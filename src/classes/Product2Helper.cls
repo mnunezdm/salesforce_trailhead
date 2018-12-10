@@ -19,17 +19,25 @@ public class Product2Helper {
     **/
     public static void AfterUpdate(List<Product2> newList, List<Product2> oldList){
         //ToDo: Declare a List of Product2 records named needsAnnouncement
+        List<Product2> needsAnnouncement = new List<Product2>();
 
-        //ToDo: Declare a Map of Strings to Inventory_Setting__mdt records
+        Map<String, Inventory_Setting__mdt> limits = new Map<String, Inventory_Setting__mdt>();
 
-        //ToDo: Loop through a query of Inventory_Setting__mdt records and populate the Map with Name as the key
+        for(Inventory_Setting__mdt meta : [SELECT DeveloperName, Low_Quantity_Alert__c
+                                           FROM Inventory_Setting__mdt]) {
+            limits.put(meta.DeveloperName, meta);
+        }
 
-        //ToDo: Loop through the Products in newList
-        // Use the corresponding Inventory Setting record to determine the correct Low Quantity Alert
-        // If the Product's Quantity Remaining has been changed to less than the Low Quantity Alert
-        //      add it to the needsAnnouncement list
+        for(Product2 product : newList) {
+            if (product.Quantity_Remaining__c <= limits.get(product.Family).Low_Quantity_Alert__c) {
+                needsAnnouncement.add(product);
+            }
+        }
 
+        if (! needsAnnouncement.isEmpty()) {
+            postAlerts(needsAnnouncement);
         //ToDo: Pass records to the postAlerts method
+    }
     }
 
     /**
