@@ -4,13 +4,12 @@ public class Product2Helper {
      * @name COLLABORATION_GROUP
      * @description List of CollaborationGroup used in both business and test logic
     **/
-    static List<CollaborationGroup> COLLABORATION_GROUP = [
-        SELECT Id
+    static List<CollaborationGroup> COLLABORATION_GROUP =
+        [SELECT Id
         FROM CollaborationGroup
-        WHERE Name = 'group name'
-        OR Name = :('TEST'+'group name')
-        LIMIT 1
-    ];
+         WHERE Name = : Constants.INVENTORY_ANNOUNCEMENTS
+         OR Name = :('TEST' + Constants.INVENTORY_ANNOUNCEMENTS)
+         LIMIT 1];
 
     /**
      * @name afterUpdate
