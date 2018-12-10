@@ -54,6 +54,7 @@ public class Product2Helper {
             textSegmentInput.text = p.Name + ' ' + Constants.INVENTORY_LEVEL_LOW;
             message.messageSegments.add(textSegmentInput);
 
+            ai.parentId = COLLABORATION_GROUP[0].Id;
             ai.body = message;
             ai.expirationDate = System.today().addDays(1);
             ai.sendEmails = false;
