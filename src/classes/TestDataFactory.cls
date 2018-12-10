@@ -8,7 +8,7 @@ public with sharing class TestDataFactory {
      * @name ConstructCollaborationGroup
      * @description
     **/
-    public static CollaborationGroup constructCollaborationGroup(){
+    public static CollaborationGroup constructCollaborationGroup() {
         //ToDo: Ensure this method returns a single Chatter CollaborationGroup
         //    whose Name starts with 'TEST' followed by the INVENTORY_ANNOUNCEMENTS constant
         //    and configured so anyone can join, see and post updates.
@@ -22,7 +22,7 @@ public with sharing class TestDataFactory {
      * @name CreateProducts
      * @description Constructs a list of Product2 records for unit tests
     **/
-    public static List<Product2> constructProducts(Integer cnt){
+    public static List<Product2> constructProducts(Integer cnt) {
         //ToDo: Ensure this method returns a list, of size cnt, of uniquely named Product2 records
         //  with all the required fields populated
         //  and IsActive = true
@@ -44,7 +44,7 @@ public with sharing class TestDataFactory {
      * @name CreatePricebookEntries
      * @description Constructs a list of PricebookEntry records for unit tests
     **/
-    public static List<PriceBookEntry> constructPricebookEntries(List<Product2> prods){
+    public static List<PriceBookEntry> constructPricebookEntries(List<Product2> prods) {
         //ToDo: Ensure this method returns a corresponding list of PricebookEntries records
         //  related to the provided Products
         //  with all the required fields populated
@@ -65,7 +65,7 @@ public with sharing class TestDataFactory {
      * @name CreateAccounts
      * @description Constructs a list of Account records for unit tests
     **/
-    public static List<Account> constructAccounts(Integer cnt){
+    public static List<Account> constructAccounts(Integer cnt) {
         //ToDo: Ensure this method returns a list of size cnt of uniquely named Account records
         //  with all of the required fields populated.
         List<Account> accounts = new List<Account>();
@@ -79,16 +79,14 @@ public with sharing class TestDataFactory {
      * @name CreateContacts
      * @description Constructs a list of Contacxt records for unit tests
     **/
-    public static List<Contact> constructContacts(Integer cnt, List<Account> accts){
+    public static List<Contact> constructContacts(Integer cnt, List<Account> accts) {
         //ToDo: Ensure this method returns a list, of size cnt, of uniquely named Contact records
         //  related to the provided Accounts
         //  with all of the required fields populated.
         List<Contact> contacts = new List<Contact>();
-        for (; cnt > 0; cnt--) {
-            Integer position = Math.mod(cnt, accts.size());
-            Id accountId = accts.get(position).Id;
-            contacts.add(new Contact(LastName=generateRandomName(),
-                                     AccountId=accountId));
+        for(Integer i = 0; i < cnt; i++) {
+            contacts.add(new Contact(LastName='Contact' + i,
+                                  AccountId=accts.get(i).Id));
         }
         return contacts;
     }
@@ -97,16 +95,15 @@ public with sharing class TestDataFactory {
      * @name CreateOrders
      * @description Constructs a list of Order records for unit tests
     **/
-    public static List<Order> constructOrders(Integer cnt, List<Account> accts){
+    public static List<Order> constructOrders(Integer cnt, List<Account> accts) {
         //ToDo: Ensure this method returns a list of size cnt of uniquely named Order records
         //  related to the provided Accounts
         //  with all of the required fields populated.
         Id pricebookId = Constants.STANDARD_PRICEBOOK_ID;
         List<Order> orders = new List<Order>();
-        for (; cnt > 0; cnt--) {
-            Integer position = Math.mod(cnt, accts.size());
-            Id accountId = accts.get(position).Id;
-            orders.add(new Order(AccountId=accountId,
+        for (Integer i = 0; i < cnt; i++) {
+            orders.add(new Order(Name='Order' + i,
+                                 AccountId=accts.get(i).Id,
                                  EffectiveDate=Date.today(),
                                  Status=Constants.DRAFT_ORDER_STATUS,
                                  Pricebook2Id=priceBookId));
@@ -118,20 +115,18 @@ public with sharing class TestDataFactory {
      * @name CreateOrderItems
      * @description Constructs a list of OrderItem records for unit tests
     **/
-    public static List<OrderItem> constructOrderItems(integer cnt, list<pricebookentry> pbes, list<order> ords){
+    public static List<OrderItem> constructOrderItems(integer cnt, list<pricebookentry> pbes, list<order> ords) {
         //ToDo: Ensure this method returns a list of size cnt of OrderItem records
         //  related to the provided Pricebook Entries
         //  and related to the provided Orders
         //  with all of the required fields populated.
         //  Hint: Use the DEFAULT_ROWS constant for Quantity as it will be used in the next challenge
         List<OrderItem> orderItems = new List<OrderItem>();
-        for (; cnt > 0; cnt--) {
-            Integer positionPbe = Math.mod(cnt, pbes.size());
-            Integer positionOrd = Math.mod(cnt, ords.size());
-            orderItems.add(new OrderItem(OrderId=pbes.get(positionOrd).Id,
-                                         PricebookEntryId=pbes.get(positionPbe).Id,
+        for (Integer i = 0; i < cnt; i++) {
+            orderItems.add(new OrderItem(OrderId=ords.get(i).Id,
+                                         PricebookEntryId=pbes.get(i).Id,
                                          Quantity=Constants.DEFAULT_ROWS,
-                                         UnitPrice=pbes.get(positionPbe).UnitPrice));
+                                         UnitPrice=pbes.get(i).UnitPrice));
         }
         return orderItems;
     }
@@ -140,7 +135,7 @@ public with sharing class TestDataFactory {
      * @name SetupTestData
      * @description Inserts accounts, contacts, Products, PricebookEntries, Orders, and OrderItems.
     **/
-    public static void InsertTestData(Integer cnt){
+    public static void insertTestData(Integer cnt) {
         //ToDo: Ensure this method calls each of the construct methods
         //  and inserts the results for use as test data.
         List<Product2> products = constructProducts(cnt);
