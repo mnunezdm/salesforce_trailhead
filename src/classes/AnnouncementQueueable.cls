@@ -4,7 +4,11 @@
 **/
 public class AnnouncementQueueable implements Queueable {
 
-    public List<ConnectApi.AnnouncementInput> toPost;
+    private List<ConnectApi.AnnouncementInput> toPost;
+
+    public AnnouncementQueueable(List<ConnectApi.AnnouncementInput> toPost) {
+        this.toPost = toPost;
+    }
 
     public void execute(QueueableContext context) {
         for (ConnectApi.AnnouncementInput input : toPost) {
@@ -27,8 +31,7 @@ public class AnnouncementQueueable implements Queueable {
             }
         }
         if ( announcements.size() > 0 && !test.isRunningTest() ){
-            AnnouncementQueueable q = new AnnouncementQueueable();
-            q.toPost = announcements;
+            AnnouncementQueueable q = new AnnouncementQueueable(announcements);
 
             System.enqueueJob(q);
         }

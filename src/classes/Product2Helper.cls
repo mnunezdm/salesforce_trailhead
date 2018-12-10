@@ -59,8 +59,8 @@ public class Product2Helper {
             ai.sendEmails = false;
             toPost.add(ai);
         }
-        AnnouncementQueueable aq = new AnnouncementQueueable();
-        aq.toPost = toPost;
-        System.enqueueJob(aq);
+
+        AnnouncementQueueable q = new AnnouncementQueueable(toPost);
+        System.enqueueJob(q);
     }
 }
