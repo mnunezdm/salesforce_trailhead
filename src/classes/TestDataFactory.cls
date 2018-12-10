@@ -157,6 +157,17 @@ public with sharing class TestDataFactory {
         insert orderItems;
     }
 
+    /**
+     * @name VerifyQuantityOrdered
+     * @description verifies that the product quantity ordered is ok
+    **/
+    public static void verifyQuantityOrdered(Product2 originalProduct, Product2 updatedProduct,
+                                             Integer qtyOrdered) {
+        System.assertEquals(updatedProduct.Quantity_Ordered__c,
+                            originalProduct.Quantity_Ordered__c + qtyOrdered);
+    }
+
+
     private static String generateRandomName() {
         return 'Test ' + Math.random();
     }
