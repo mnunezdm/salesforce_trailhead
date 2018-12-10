@@ -4,13 +4,12 @@ public class Product2Helper {
      * @name COLLABORATION_GROUP
      * @description List of CollaborationGroup used in both business and test logic
     **/
-    static List<CollaborationGroup> COLLABORATION_GROUP = [
-        SELECT Id
-        FROM CollaborationGroup
-        WHERE Name = 'group name'
-        OR Name = :('TEST'+'group name')
-        LIMIT 1
-    ];
+    static List<CollaborationGroup> COLLABORATION_GROUP =
+        [SELECT Id
+         FROM CollaborationGroup
+         WHERE Name = : Constants.INVENTORY_ANNOUNCEMENTS
+         OR Name = :('TEST' + Constants.INVENTORY_ANNOUNCEMENTS)
+         LIMIT 1];
 
     /**
      * @name afterUpdate
@@ -18,19 +17,25 @@ public class Product2Helper {
      * @param List<Product2> newList
      * @param List<Product2> oldList
     **/
-    public static void AfterUpdate(){
-        //ToDo: Declare a List of Product2 records named needsAnnouncement
+    public static void AfterUpdate(List<Product2> newList, List<Product2> oldList){
+        List<Product2> needsAnnouncement = new List<Product2>();
 
-        //ToDo: Declare a Map of Strings to Inventory_Setting__mdt records
+        Map<String, Inventory_Setting__mdt> limits = new Map<String, Inventory_Setting__mdt>();
 
-        //ToDo: Loop through a query of Inventory_Setting__mdt records and populate the Map with Name as the key
+        for(Inventory_Setting__mdt meta : [SELECT DeveloperName, Low_Quantity_Alert__c
+                                           FROM Inventory_Setting__mdt]) {
+            limits.put(meta.DeveloperName, meta);
+        }
 
-        //ToDo: Loop through the Products in newList
-        // Use the corresponding Inventory Setting record to determine the correct Low Quantity Alert
-        // If the Product's Quantity Remaining has been changed to less than the Low Quantity Alert
-        //      add it to the needsAnnouncement list
+        for(Product2 product : newList) {
+            if (product.Quantity_Remaining__c <= limits.get(product.Family).Low_Quantity_Alert__c) {
+                needsAnnouncement.add(product);
+            }
+        }
 
-        //ToDo: Pass records to the postAlerts method
+        if (! needsAnnouncement.isEmpty()) {
+            postAlerts(needsAnnouncement);
+        }
     }
 
     /**
@@ -38,14 +43,25 @@ public class Product2Helper {
      * @description called by product2 Trigger on After Update
      * @param List<Product2> productList
     **/
-    public static void PostAlerts(List<Product2> productList){
+    public static void postAlerts(List<Product2> productList){
         List<ConnectApi.AnnouncementInput> toPost = new List<ConnectApi.AnnouncementInput>();
         for ( Product2 p : productList ){
-            // ToDo: Construct a new AnnouncementInput for the Chatter Group so that it:
-            // expires in a day
-            // does not notify users via email.
-            // and has a text body that includes the name of the product followed by the INVENTORY_LEVEL_LOW constant
+            ConnectApi.AnnouncementInput ai = new ConnectApi.AnnouncementInput();
+            ConnectApi.MessageBodyInput message = new ConnectApi.MessageBodyInput();
+            ConnectApi.TextSegmentInput textSegmentInput = new ConnectApi.TextSegmentInput();
+
+            message.messageSegments = new List<ConnectApi.MessageSegmentInput>();
+            textSegmentInput.text = p.Name + ' ' + Constants.INVENTORY_LEVEL_LOW;
+            message.messageSegments.add(textSegmentInput);
+
+            ai.parentId = COLLABORATION_GROUP[0].Id;
+            ai.body = message;
+            ai.expirationDate = System.today().addDays(1);
+            ai.sendEmails = false;
+            toPost.add(ai);
         }
-        // ToDo: Create and enqueue an instance of the announcementQueuable class with the list of Products
+
+        AnnouncementQueueable q = new AnnouncementQueueable(toPost);
+        System.enqueueJob(q);
     }
 }
