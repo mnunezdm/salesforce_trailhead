@@ -140,17 +140,13 @@ public class OrderExtension {
      * @description
     **/
     public static Order QueryOrderRecord(Id orderId){
-        return [
-            SELECT Id, AccountId, EffectiveDate, Name, Status, Pricebook2Id,
-                (
-                    SELECT Id, OrderId, Quantity, UnitPrice, PricebookEntryId, Product2Id,
-                         Product2.Name, Product2.Family, Product2.Quantity_Remaining__c
-                    FROM OrderItems
-                )
-            FROM Order
-            WHERE Id = :orderId
-            LIMIT :Constants.DEFAULT_ROWS
-        ];
+        return [SELECT Id, AccountId, EffectiveDate, Name, Status, Pricebook2Id,
+                       (SELECT Id, OrderId, Quantity, UnitPrice, PricebookEntryId, Product2Id,
+                               Product2.Name, Product2.Family, Product2.Quantity_Remaining__c
+                        FROM OrderItems)
+                FROM Order
+                WHERE Id = :orderId
+                LIMIT 1];
     }
 
 }
