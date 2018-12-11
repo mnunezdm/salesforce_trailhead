@@ -76,5 +76,10 @@ public class Product2Extension {
             this.productRecord = new Product2();
             this.pricebookEntryRecord = new PricebookEntry();
         }
+
+        public ProductWrapper(Product2 productRecord, PricebookEntry pricebookEntryRecord) {
+            this.productRecord = this.productRecord;
+            this.pricebookEntryRecord = this.pricebookEntryRecord;
+        }
     }
 }
