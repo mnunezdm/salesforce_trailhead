@@ -26,6 +26,7 @@ public class OrderExtension {
             }
         }
         resetOrderItemList();
+        repopulateChartData();
     }
 
     //ToDo: Implement your own method to populate orderItemList
@@ -87,6 +88,19 @@ public class OrderExtension {
         for(OrderItem item : orderItemList) {
             System.debug(LoggingLevel.FINE, 'Added ' + item.Product2.Name);
             orderItemMap.put(item.Product2Id, item);
+        }
+
+        repopulateChartData();
+    }
+
+    public void repopulateChartData(){
+        System.debug(LoggingLevel.DEBUG, 'Repopulating chart data');
+        pieData.clear();
+        for (OrderItem oi : orderItemMap.values()) {
+            if (oi.Quantity > 0) {
+                pieData.add(new ChartHelper.ChartData(oi.Product2.Name,
+                                                    oi.Quantity));
+            }
         }
     }
 
