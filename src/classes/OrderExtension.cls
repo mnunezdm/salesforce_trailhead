@@ -96,8 +96,10 @@ public class OrderExtension {
     public void repopulateChartData(){
         System.debug(LoggingLevel.DEBUG, 'Repopulating chart data');
         pieData.clear();
+        total = 0;
         for (OrderItem oi : orderItemMap.values()) {
             if (oi.Quantity > 0) {
+                total += oi.Quantity * oi.UnitPrice;
                 pieData.add(new ChartHelper.ChartData(oi.Product2.Name,
                                                     oi.Quantity));
             }
@@ -125,15 +127,11 @@ public class OrderExtension {
         try {
             if (orderRecord.Id == null) {
                 System.debug(LoggingLevel.DEBUG, 'Inserting order');
-                orderRecord.Pricebook2Id = (orderRecord.Pricebook2Id == null)?
-                                            Constants.STANDARD_PRICEBOOK_ID :
-                                            orderRecord.Pricebook2Id;
+                orderRecord.Pricebook2Id = Constants.STANDARD_PRICEBOOK_ID;
                 insert orderRecord;
             } else {
                 System.debug(LoggingLevel.DEBUG, 'Updating order');
-                orderRecord.Pricebook2Id = (orderRecord.Pricebook2Id == null)?
-                                            Constants.STANDARD_PRICEBOOK_ID :
-                                            orderRecord.Pricebook2Id;
+                orderRecord.Pricebook2Id = orderRecord.Pricebook2Id;
                 update orderRecord;
             }
 

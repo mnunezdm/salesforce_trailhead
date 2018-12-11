@@ -32,4 +32,64 @@ private class Product2Tests {
         System.assertEquals(POPULATED_VALUES, [SELECT COUNT() FROM PricebookEntry]);
     }
 
+    @isTest
+    static void Product2Extension_forceException(){
+        List<Product2> products = TestDataFactory.constructProducts(1);
+        insert products;
+        List<PricebookEntry> pbes = TestDataFactory.constructPricebookEntries(products);
+        insert pbes;
+
+        ApexPages.StandardController sc = new ApexPages.StandardController(new Product2());
+        Product2Extension ext = new Product2Extension(sc);
+        PageReference pageRef = Page.Product2New;
+        Test.setCurrentPage(pageRef);
+
+        for(Integer i = 0; i < products.size(); i++) {
+            ext.productsToInsert.add(new Product2Extension.ProductWrapper(products.get(i),
+                                                                          pbes.get(i)));
+        }
+
+        Test.startTest();
+            ext.save();
+        Test.stopTest();
+
+        System.assertEquals(1, ApexPages.getMessages().size());
+    }
+
+    @isTest
+    static void Product2Extension_inventory() {
+        List<Product2> products = TestDataFactory.constructProducts(Constants.PRODUCT_FAMILY.size());
+        insert products;
+
+        Product2Extension ext = new Product2Extension(null);
+
+        Test.startTest();
+            List<ChartHelper.ChartData> chartData = ext.GetInventory();
+        Test.stopTest();
+
+        System.assertEquals(Constants.PRODUCT_FAMILY.size(), chartData.size());
+    }
+
+    @isTest
+    static void Product2Extension_getFamily() {
+        Product2Extension ext = new Product2Extension(null);
+
+        Test.startTest();
+            List<SelectOption> familySelect = ext.getFamilyOptions();
+        Test.stopTest();
+
+        System.assertEquals(Constants.PRODUCT_FAMILY.size() + 1, familySelect.size());
+    }
+
+    @isTest
+    static void Product2Trigger_UnitTest() {
+        insert TestDataFactory.constructCollaborationGroup();
+        Product2 prod = TestDataFactory.constructProducts(1)[0];
+        insert prod;
+
+        Test.startTest();
+            prod.Quantity_Ordered__c = prod.Quantity_Remaining__c;
+            update prod;
+        Test.stopTest();
+    }
 }

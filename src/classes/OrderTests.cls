@@ -8,6 +8,82 @@ public class OrderTests {
     }
 
     @isTest
+    public static void OrderExtension_UnitTest () {
+        Order ord = [SELECT Id FROM Order LIMIT 1];
+
+        PageReference pageRef = Page.OrderEdit;
+        Test.setCurrentPage(pageRef);
+
+        Test.startTest();
+            ApexPages.StandardController sc = new ApexPages.StandardController(ord);
+            OrderExtension ext = new OrderExtension(sc);
+
+            ext.Next();
+            ext.Previous();
+            ext.Last();
+            ext.First();
+            ext.getHasNext();
+            ext.getHasPrevious();
+            ext.getPageNumber();
+            ext.getTotalPages();
+            ext.selectedFamily = Constants.PRODUCT_FAMILY.get(1).getValue();
+            ext.SelectFamily();
+
+            ext.OnFieldChange();
+            ext.orderItemList.get(0).Quantity = 1;
+            ext.OnFieldChange();
+
+            ext.save();
+        Test.stopTest();
+    }
+
+    @isTest
+    public static void OrderExtension_DeleteTest () {
+        Order ord = [SELECT Id FROM Order LIMIT 1];
+
+        PageReference pageRef = Page.OrderEdit;
+        Test.setCurrentPage(pageRef);
+
+        Test.startTest();
+            ApexPages.StandardController sc = new ApexPages.StandardController(ord);
+            OrderExtension ext = new OrderExtension(sc);
+
+            // delete one
+            ext.orderItemMap.values().get(0).Quantity = 0;
+
+            ext.save();
+        Test.stopTest();
+    }
+
+    @isTest
+    public static void OrderExtension_NewNoAccount () {
+        Order ord = new Order();
+
+        PageReference pageRef = Page.OrderEdit;
+        Test.setCurrentPage(pageRef);
+
+        Test.startTest();
+            ApexPages.StandardController sc = new ApexPages.StandardController(ord);
+            OrderExtension ext = new OrderExtension(sc);
+
+            ext.save();
+        Test.stopTest();
+    }
+
+    @isTest
+    static void OrderExtension_getFamily() {
+        Order ord = [SELECT Id FROM Order LIMIT 1];
+        ApexPages.StandardController sc = new ApexPages.StandardController(ord);
+        OrderExtension ext = new OrderExtension(sc);
+
+        Test.startTest();
+            List<SelectOption> familySelect = ext.getFamilyOptions();
+        Test.stopTest();
+
+        System.assertEquals(Constants.PRODUCT_FAMILY.size() + 1, familySelect.size());
+    }
+
+    @isTest
     public static void OrderUpdate_UnitTest() {
         List<Order> orders = [SELECT Id
                               FROM Order
