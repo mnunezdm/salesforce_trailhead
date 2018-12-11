@@ -96,6 +96,7 @@ public class OrderExtension {
      * @description
     **/
     public void First(){
+        System.debug('Naviagting to first position');
         standardSetController.first();
         populateOrderItemList();
     }
@@ -105,6 +106,7 @@ public class OrderExtension {
      * @description
     **/
     public void Next(){
+        System.debug('Naviagting to next position');
         standardSetController.next();
         populateOrderItemList();
     }
@@ -114,6 +116,7 @@ public class OrderExtension {
      * @description
     **/
     public void Previous(){
+        System.debug('Naviagting to previous position');
         standardSetController.previous();
         populateOrderItemList();
     }
@@ -123,6 +126,7 @@ public class OrderExtension {
      * @description
     **/
     public void Last(){
+        System.debug('Naviagting to last position');
         standardSetController.last();
         populateOrderItemList();
     }
@@ -132,6 +136,8 @@ public class OrderExtension {
      * @description
     **/
     public Boolean getHasPrevious(){
+        Boolean hasPrevious = standardSetController.getHasPrevious();
+        System.debug('Has Previous? ' + hasPrevious);
         return standardSetController.getHasPrevious();
     }
 
@@ -140,6 +146,8 @@ public class OrderExtension {
      * @description
     **/
     public Boolean getHasNext(){
+        Boolean hasNext = standardSetController.getHasNext();
+        System.debug('Has Next? ' + hasNext);
         return standardSetController.getHasNext();
     }
 
@@ -150,7 +158,12 @@ public class OrderExtension {
     public Integer getTotalPages(){
         Decimal numberOfRecords = standardSetController.getResultSize();
         Decimal numberOfPages = numberOfRecords / standardSetController.getPageSize();
-        return numberOfPages == 0? 1 : Math.ceil(numberOfPages).intValue();
+
+        Integer numberOfPagesInt = numberOfPages.round(System.RoundingMode.UP).intValue();
+
+        System.debug(LoggingLevel.FINER, 'Current total of pages is ' + numberOfPagesInt +
+                                         ' with #records ' + numberOfRecords);
+        return Math.ceil(numberOfPages).intValue();
     }
 
     /**
@@ -158,7 +171,9 @@ public class OrderExtension {
      * @description
     **/
     public Integer getPageNumber(){
-        return standardSetController.getPageNumber();
+        Integer pageNumber = standardSetController.getPageNumber();
+        System.debug(LoggingLevel.FINER, 'Current page number is ' + pageNumber);
+        return pageNumber;
     }
 
     /**
