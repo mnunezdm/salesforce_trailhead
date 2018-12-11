@@ -124,8 +124,13 @@ public class OrderExtension {
      * @name GetFamilyOptions
      * @description
     **/
-    public List<SelectOption> GetFamilyOptions(){
-        return null;
+    public List<SelectOption> getFamilyOptions() {
+        List<SelectOption> familyOptions = new List<SelectOption>();
+        familyOptions.add(new SelectOption(Constants.SELECT_ONE, Constants.SELECT_ONE));
+        for (Schema.PicklistEntry pe : Constants.PRODUCT_FAMILY) {
+            familyOptions.add(new SelectOption(pe.getValue(), pe.getLabel()));
+        }
+        return familyOptions;
     }
 
     /**
