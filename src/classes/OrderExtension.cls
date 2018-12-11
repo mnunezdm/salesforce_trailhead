@@ -15,12 +15,15 @@ public class OrderExtension {
 
     public OrderExtension(ApexPages.StandardController standardController){
         orderItemList = new List<OrderItem>();
-        pieData = new List<chartHelper.chartData>();
+        pieData = new List<ChartHelper.ChartData>();
 
         orderRecord = (Order) standardController.getRecord();
         orderItemMap = new Map<id,OrderItem>();
         if (orderRecord.Id != null){
             orderRecord = queryOrderRecord(orderRecord.Id);
+            for(OrderItem item : orderRecord.OrderItems) {
+                orderItemMap.put(item.Product2Id, item);
+            }
         }
         resetOrderItemList();
     }
@@ -54,9 +57,13 @@ public class OrderExtension {
         orderItemList.clear();
         for(PriceBookEntry pbe : (List<PricebookEntry>) standardSetController.getRecords()) {
             OrderItem edited = orderItemMap.get(pbe.Product2Id);
+
+            Id editedId = edited != null? edited.Id : null;
             Decimal editedQuantity = edited != null? edited.Quantity : 0;
             Decimal editedPrice = edited != null? edited.UnitPrice : pbe.UnitPrice;
-            orderItemList.add(new OrderItem(OrderId=orderRecord.Id,
+
+            orderItemList.add(new OrderItem(Id=editedId,
+                                            OrderId=orderRecord.Id,
                                             Product2=pbe.Product2,
                                             Product2Id=pbe.Product2Id,
                                             PricebookEntryId=pbe.Id,
