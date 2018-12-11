@@ -83,6 +83,7 @@ private class Product2Tests {
 
     @isTest
     static void Product2Trigger_UnitTest() {
+        insert TestDataFactory.constructCollaborationGroup();
         Product2 prod = TestDataFactory.constructProducts(1)[0];
         insert prod;
 
