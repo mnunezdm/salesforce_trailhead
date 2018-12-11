@@ -138,6 +138,9 @@ public with sharing class TestDataFactory {
     public static void insertTestData(Integer cnt) {
         //ToDo: Ensure this method calls each of the construct methods
         //  and inserts the results for use as test data.
+        CollaborationGroup collab = constructCollaborationGroup();
+        insert collab;
+
         List<Product2> products = constructProducts(cnt);
         insert products;
 
