@@ -147,6 +147,7 @@ public class OrderExtension {
                 )
             FROM Order
             WHERE Id = :orderId
+            LIMIT :Constants.DEFAULT_ROWS
         ];
     }
 
