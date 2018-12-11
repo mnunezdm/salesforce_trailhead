@@ -86,9 +86,63 @@ public class OrderExtension {
      * @name Save
      * @description
     **/
-    public void Save(){
+    public void save(){
         //ToDo: Implement logic to save the Order and populated OrderItems
+        SavePoint sp = Database.setSavePoint();
+        try {
+            if (orderRecord.Id == null) {
+                System.debug(LoggingLevel.DEBUG, 'Inserting order');
+                orderRecord.Pricebook2Id = (orderRecord.Pricebook2Id == null)?
+                                            Constants.STANDARD_PRICEBOOK_ID :
+                                            orderRecord.Pricebook2Id;
+                insert orderRecord;
+            } else {
+                System.debug(LoggingLevel.DEBUG, 'Updating order');
+                orderRecord.Pricebook2Id = (orderRecord.Pricebook2Id == null)?
+                                            Constants.STANDARD_PRICEBOOK_ID :
+                                            orderRecord.Pricebook2Id;
+                update orderRecord;
+            }
 
+            List<OrderItem> itemsToAdd = new List<OrderItem>();
+            List<OrderItem> itemsToUpdate = new List<OrderItem>();
+            List<OrderItem> itemsToRemove = new List<OrderItem>();
+
+            for (OrderItem item : orderItemMap.values()) {
+                if (item.Id != null && item.Quantity == 0) {
+                    System.debug(LoggingLevel.FINE, item.Product2.Name +
+                                                    ' existed and new quantity is 0, removing');
+                    System.debug(LoggingLevel.FINER, item);
+                    itemsToRemove.add(item);
+                } else if (item.Id != null) {
+                    System.debug(LoggingLevel.FINE, item.Product2.Name +
+                                                    ' existed and edited, updating');
+                    System.debug(LoggingLevel.FINER, item);
+                    itemsToUpdate.add(item);
+                } else if (item.Quantity != 0) {
+                    System.debug(LoggingLevel.FINE, item.Product2.Name +
+                                                    ' not exists, creating');
+                    item.OrderId = orderRecord.Id;
+                    System.debug(LoggingLevel.FINER, item);
+                    itemsToAdd.add(item);
+                } else {
+                    System.debug(LoggingLevel.FINER, item.Product2.Name + ' dismissed');
+                }
+            }
+            System.debug(LoggingLevel.DEBUG, 'Adding ' + itemsToAdd.size() + ' items');
+            insert itemsToAdd;
+
+            System.debug(LoggingLevel.DEBUG, 'Updating ' + itemsToUpdate.size() + ' items');
+            update itemsToUpdate;
+
+            System.debug(LoggingLevel.DEBUG, 'Removing ' + itemsToRemove.size() + ' items');
+            delete itemsToRemove;
+
+            System.debug(LoggingLevel.DEBUG, 'All operations finished correctly');
+        } catch (Exception e) {
+            System.debug(LoggingLevel.ERROR, 'Error saving, rolling back, ' + e);
+            Database.rollback(sp);
+        }
     }
 
     /**
