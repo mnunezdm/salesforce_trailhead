@@ -29,10 +29,6 @@ public class OrderTests {
             ext.selectedFamily = Constants.PRODUCT_FAMILY.get(1).getValue();
             ext.SelectFamily();
 
-            // delete one
-            // ext.orderItemMap.values().get(0).Quantity = 0;
-
-            // create one
             ext.OnFieldChange();
             ext.orderItemList.get(0).Quantity = 1;
             ext.OnFieldChange();
@@ -59,6 +55,20 @@ public class OrderTests {
         Test.stopTest();
     }
 
+    @isTest
+    public static void OrderExtension_NewNoAccount () {
+        Order ord = new Order();
+
+        PageReference pageRef = Page.OrderEdit;
+        Test.setCurrentPage(pageRef);
+
+        Test.startTest();
+            ApexPages.StandardController sc = new ApexPages.StandardController(ord);
+            OrderExtension ext = new OrderExtension(sc);
+
+            ext.save();
+        Test.stopTest();
+    }
 
     @isTest
     static void OrderExtension_getFamily() {
