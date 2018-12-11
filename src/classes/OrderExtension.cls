@@ -148,7 +148,7 @@ public class OrderExtension {
      * @description
     **/
     public Integer getTotalPages(){
-        Integer numberOfRecords = standardSetController.getResultSize();
+        Decimal numberOfRecords = standardSetController.getResultSize();
         Decimal numberOfPages = numberOfRecords / standardSetController.getPageSize();
         return numberOfPages == 0? 1 : Math.ceil(numberOfPages).intValue();
     }
