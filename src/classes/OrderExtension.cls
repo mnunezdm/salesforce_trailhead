@@ -15,20 +15,22 @@ public class OrderExtension {
 
     public OrderExtension(ApexPages.StandardController standardController){
         orderItemList = new List<OrderItem>();
-        pieData = new List<ChartHelper.ChartData>();
+        pieData = new List<chartHelper.chartData>();
 
         orderRecord = (Order) standardController.getRecord();
         orderItemMap = new Map<id,OrderItem>();
         if (orderRecord.Id != null){
             orderRecord = queryOrderRecord(orderRecord.Id);
         }
-        populateOrderItemList();
+        resetOrderItemList();
     }
 
     //ToDo: Implement your own method to populate orderItemList
     //  that you will call after pagination and/or family selection
-    private void populateOrderItemList(){
+    private void resetOrderItemList(){
+        System.debug(LoggingLevel.DEBUG, 'Resetting order item list');
         if (selectedFamily != null && !selectedFamily.isWhitespace()) {
+            System.debug(LoggingLevel.FINE, 'Filtering with family ' + selectedFamily);
             standardSetController = new ApexPages.StandardSetController(
                 [SELECT Id, Product2Id, Product2.Name, Product2.Family,
                         UnitPrice, Product2.Quantity_Remaining__c
@@ -44,6 +46,11 @@ public class OrderExtension {
         }
         standardSetController.setPageSize(Constants.DEFAULT_ROWS);
 
+        populateOrderItemList();
+    }
+
+    private void populateOrderItemList(){
+        System.debug(LoggingLevel.DEBUG, 'Refreshing list of visible items');
         orderItemList.clear();
         for(PriceBookEntry pbe : (List<PricebookEntry>) standardSetController.getRecords()) {
             OrderItem edited = orderItemMap.get(pbe.Product2Id);
@@ -65,6 +72,8 @@ public class OrderExtension {
      * @description
     **/
     public void OnFieldChange(){
+        System.debug(LoggingLevel.DEBUG, 'Detected change in a field');
+
         //ToDo: Implement logic to store the values changed on the page
         //      and populate pieData
         //      and populate total
@@ -80,7 +89,8 @@ public class OrderExtension {
     **/
     public void SelectFamily(){
         //ToDo: Implement logic to filter based on the selected product family
-        populateOrderItemList();
+        System.debug(LoggingLevel.DEBUG, 'Selected family ' + selectedFamily);
+        resetOrderItemList();
     }
 
     /**
@@ -88,6 +98,7 @@ public class OrderExtension {
      * @description
     **/
     public void save(){
+        System.debug(LoggingLevel.DEBUG, 'Saving Order and Order Items');
         //ToDo: Implement logic to save the Order and populated OrderItems
         SavePoint sp = Database.setSavePoint();
         try {
@@ -151,7 +162,7 @@ public class OrderExtension {
      * @description
     **/
     public void First(){
-        System.debug('Naviagting to first position');
+        System.debug(LoggingLevel.FINE, 'Navigating to first position');
         standardSetController.first();
         populateOrderItemList();
     }
@@ -161,7 +172,7 @@ public class OrderExtension {
      * @description
     **/
     public void Next(){
-        System.debug('Naviagting to next position');
+        System.debug(LoggingLevel.FINE, 'Navigating to next position');
         standardSetController.next();
         populateOrderItemList();
     }
@@ -171,7 +182,7 @@ public class OrderExtension {
      * @description
     **/
     public void Previous(){
-        System.debug('Naviagting to previous position');
+        System.debug(LoggingLevel.FINE, 'Navigating to previous position');
         standardSetController.previous();
         populateOrderItemList();
     }
@@ -181,7 +192,7 @@ public class OrderExtension {
      * @description
     **/
     public void Last(){
-        System.debug('Naviagting to last position');
+        System.debug(LoggingLevel.FINE, 'Navigating to last position');
         standardSetController.last();
         populateOrderItemList();
     }
@@ -192,7 +203,7 @@ public class OrderExtension {
     **/
     public Boolean getHasPrevious(){
         Boolean hasPrevious = standardSetController.getHasPrevious();
-        System.debug('Has Previous? ' + hasPrevious);
+        System.debug(LoggingLevel.FINE, 'Has Previous? ' + hasPrevious);
         return standardSetController.getHasPrevious();
     }
 
@@ -202,7 +213,7 @@ public class OrderExtension {
     **/
     public Boolean getHasNext(){
         Boolean hasNext = standardSetController.getHasNext();
-        System.debug('Has Next? ' + hasNext);
+        System.debug(LoggingLevel.FINE, 'Has Next? ' + hasNext);
         return standardSetController.getHasNext();
     }
 
