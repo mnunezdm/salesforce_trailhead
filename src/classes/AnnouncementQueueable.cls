@@ -21,8 +21,8 @@ public class AnnouncementQueueable implements Queueable {
      * @description This method is provided for you to facilitate the Super Badge
     **/
     public static void postAnnouncements(List<ConnectApi.AnnouncementInput> announcements){
-        while ( announcements.size() > 0 ){
-            if ( Limits.getDMLStatements() < Limits.getLimitDMLStatements() && !test.isRunningTest() ){
+        while (announcements.size() > 0){
+            if (Limits.getDMLStatements() < Limits.getLimitDMLStatements() && !test.isRunningTest()){
                 ConnectApi.AnnouncementInput a = announcements.remove(0);
                 ConnectApi.Announcements.postAnnouncement('Internal', a);
             } else {
@@ -30,9 +30,8 @@ public class AnnouncementQueueable implements Queueable {
                 break;
             }
         }
-        if ( announcements.size() > 0 && !test.isRunningTest() ){
+        if (announcements.size() > 0 && !test.isRunningTest()){
             AnnouncementQueueable q = new AnnouncementQueueable(announcements);
-
             System.enqueueJob(q);
         }
     }
