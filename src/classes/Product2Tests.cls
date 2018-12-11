@@ -80,4 +80,15 @@ private class Product2Tests {
 
         System.assertEquals(Constants.PRODUCT_FAMILY.size() + 1, familySelect.size());
     }
+
+    @isTest
+    static void Product2Trigger_UnitTest() {
+        Product2 prod = TestDataFactory.constructProducts(1)[0];
+        insert prod;
+
+        Test.startTest();
+            prod.Quantity_Ordered__c = prod.Quantity_Remaining__c;
+            update prod;
+        Test.stopTest();
+    }
 }
