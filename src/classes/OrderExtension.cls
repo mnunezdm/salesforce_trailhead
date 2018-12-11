@@ -14,15 +14,49 @@ public class OrderExtension {
     ApexPages.StandardSetController standardSetController;
 
     public OrderExtension(ApexPages.StandardController standardController){
+        orderItemList = new List<OrderItem>();
+
         orderRecord = (Order) standardController.getRecord();
         orderItemMap = new Map<id,OrderItem>();
         if (orderRecord.Id != null){
             orderRecord = queryOrderRecord(orderRecord.Id);
         }
+        populateOrderItemList();
     }
 
     //ToDo: Implement your own method to populate orderItemList
     //  that you will call after pagination and/or family selection
+    private void populateOrderItemList(){
+        if (selectedFamily != null && !selectedFamily.isWhitespace()) {
+            standardSetController = new ApexPages.StandardSetController(
+                [SELECT Id, Product2Id, Product2.Name, Product2.Family,
+                        UnitPrice, Product2.Quantity_Remaining__c
+                FROM PricebookEntry
+                WHERE IsActive = true
+                    AND Product2.Family = :selectedFamily]);
+        } else {
+            standardSetController = new ApexPages.StandardSetController(
+                [SELECT Id, Product2Id, Product2.Name, Product2.Family,
+                        UnitPrice, Product2.Quantity_Remaining__c
+                FROM PricebookEntry
+                WHERE IsActive = true]);
+        }
+        standardSetController.setPageSize(Constants.DEFAULT_ROWS);
+
+        orderItemList.clear();
+        for(PriceBookEntry pbe : (List<PricebookEntry>) standardSetController.getRecords()) {
+            OrderItem edited = orderItemMap.get(pbe.Product2Id);
+            Decimal editedQuantity = edited != null? edited.Quantity : 0;
+            Decimal editedPrice = edited != null? edited.UnitPrice : pbe.UnitPrice;
+            orderItemList.add(new OrderItem(OrderId=orderRecord.Id,
+                                            Product2=pbe.Product2,
+                                            Product2Id=pbe.Product2Id,
+                                            PricebookEntryId=pbe.Id,
+                                            PricebookEntry=pbe,
+                                            Quantity=editedQuantity,
+                                            UnitPrice=editedPrice));
+        }
+    }
 
 
     /**
@@ -33,7 +67,10 @@ public class OrderExtension {
         //ToDo: Implement logic to store the values changed on the page
         //      and populate pieData
         //      and populate total
-
+        for(OrderItem item : orderItemList) {
+            System.debug(LoggingLevel.FINE, 'Added ' + item.Product2.Name);
+            orderItemMap.put(item.Product2Id, item);
+        }
     }
 
     /**
@@ -42,6 +79,7 @@ public class OrderExtension {
     **/
     public void SelectFamily(){
         //ToDo: Implement logic to filter based on the selected product family
+        populateOrderItemList();
     }
 
     /**
@@ -53,15 +91,14 @@ public class OrderExtension {
 
     }
 
-
     /**
      * @name First
      * @description
     **/
     public void First(){
         standardSetController.first();
+        populateOrderItemList();
     }
-
 
     /**
      * @name Next
@@ -69,8 +106,8 @@ public class OrderExtension {
     **/
     public void Next(){
         standardSetController.next();
+        populateOrderItemList();
     }
-
 
     /**
      * @name Previous
@@ -78,6 +115,7 @@ public class OrderExtension {
     **/
     public void Previous(){
         standardSetController.previous();
+        populateOrderItemList();
     }
 
     /**
@@ -86,39 +124,40 @@ public class OrderExtension {
     **/
     public void Last(){
         standardSetController.last();
+        populateOrderItemList();
     }
 
     /**
-     * @name GetHasPrevious
+     * @name getHasPrevious
      * @description
     **/
-    public Boolean GetHasPrevious(){
+    public Boolean getHasPrevious(){
         return standardSetController.getHasPrevious();
     }
 
     /**
-     * @name GetHasNext
+     * @name getHasNext
      * @description
     **/
-    public Boolean GetHasNext(){
+    public Boolean getHasNext(){
         return standardSetController.getHasNext();
     }
 
     /**
-     * @name GetTotalPages
+     * @name getTotalPages
      * @description
     **/
-    public Integer GetTotalPages(){
+    public Integer getTotalPages(){
         Integer numberOfRecords = standardSetController.getResultSize();
         Decimal numberOfPages = numberOfRecords / standardSetController.getPageSize();
         return numberOfPages == 0? 1 : Math.ceil(numberOfPages).intValue();
     }
 
     /**
-     * @name GetPageNumber
+     * @name getPageNumber
      * @description
     **/
-    public Integer GetPageNumber(){
+    public Integer getPageNumber(){
         return standardSetController.getPageNumber();
     }
 
@@ -148,5 +187,4 @@ public class OrderExtension {
                 WHERE Id = :orderId
                 LIMIT 1];
     }
-
 }
