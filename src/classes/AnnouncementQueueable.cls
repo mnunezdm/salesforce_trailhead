@@ -22,17 +22,13 @@ public class AnnouncementQueueable implements Queueable {
     **/
     public static void postAnnouncements(List<ConnectApi.AnnouncementInput> announcements){
         while (announcements.size() > 0){
-            if (Limits.getDMLStatements() < Limits.getLimitDMLStatements() && !test.isRunningTest()){
-                ConnectApi.AnnouncementInput a = announcements.remove(0);
-                ConnectApi.Announcements.postAnnouncement('Internal', a);
+            if (Limits.getDMLStatements() < Limits.getLimitDMLStatements() && !test.isRunningTest()){ConnectApi.AnnouncementInput a = announcements.remove(0);ConnectApi.Announcements.postAnnouncement('Internal', a);
             } else {
                 System.debug(LoggingLevel.DEBUG, 'Limit almost reached, enqueueing job in order to complete');
                 break;
             }
         }
-        if (announcements.size() > 0 && !test.isRunningTest()){
-            AnnouncementQueueable q = new AnnouncementQueueable(announcements);
-            System.enqueueJob(q);
+        if (announcements.size() > 0 && !test.isRunningTest()){AnnouncementQueueable q = new AnnouncementQueueable(announcements);System.enqueueJob(q);
         }
     }
 
