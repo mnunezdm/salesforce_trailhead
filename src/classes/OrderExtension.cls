@@ -59,7 +59,7 @@ public class OrderExtension {
      * @description
     **/
     public void First(){
-
+        standardSetController.first();
     }
 
 
@@ -68,7 +68,7 @@ public class OrderExtension {
      * @description
     **/
     public void Next(){
-
+        standardSetController.next();
     }
 
 
@@ -77,7 +77,7 @@ public class OrderExtension {
      * @description
     **/
     public void Previous(){
-
+        standardSetController.previous();
     }
 
     /**
@@ -85,7 +85,7 @@ public class OrderExtension {
      * @description
     **/
     public void Last(){
-
+        standardSetController.last();
     }
 
     /**
@@ -93,7 +93,7 @@ public class OrderExtension {
      * @description
     **/
     public Boolean GetHasPrevious(){
-        return null;
+        return standardSetController.getHasPrevious();
     }
 
     /**
@@ -101,7 +101,7 @@ public class OrderExtension {
      * @description
     **/
     public Boolean GetHasNext(){
-        return null;
+        return standardSetController.getHasNext();
     }
 
     /**
@@ -109,7 +109,9 @@ public class OrderExtension {
      * @description
     **/
     public Integer GetTotalPages(){
-        return null;
+        Integer numberOfRecords = standardSetController.getResultSize();
+        Decimal numberOfPages = numberOfRecords / standardSetController.getPageSize();
+        return numberOfPages == 0? 1 : Math.ceil(numberOfPages).intValue();
     }
 
     /**
@@ -117,7 +119,7 @@ public class OrderExtension {
      * @description
     **/
     public Integer GetPageNumber(){
-        return null;
+        return standardSetController.getPageNumber();
     }
 
     /**
