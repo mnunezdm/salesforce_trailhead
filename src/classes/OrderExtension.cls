@@ -15,6 +15,7 @@ public class OrderExtension {
 
     public OrderExtension(ApexPages.StandardController standardController){
         orderItemList = new List<OrderItem>();
+        pieData = new List<ChartHelper.ChartData>();
 
         orderRecord = (Order) standardController.getRecord();
         orderItemMap = new Map<id,OrderItem>();
