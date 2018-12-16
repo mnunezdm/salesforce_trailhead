@@ -92,7 +92,7 @@
         <actionName>ViewSelfService</actionName>
         <type>Default</type>
     </actionOverrides>
-    <compactLayoutAssignment>Phone_and_Email</compactLayoutAssignment>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <compactLayouts>
         <fullName>Phone_and_Email</fullName>
         <fields>Name</fields>
@@ -121,12 +121,12 @@
     </fields>
     <fields>
         <fullName>AssistantName</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>AssistantPhone</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -176,7 +176,7 @@
     </fields>
     <fields>
         <fullName>Description</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -190,8 +190,16 @@
     </fields>
     <fields>
         <fullName>Fax</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Force_Birthday_Reset__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Force Birthday Reset</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>HasOptedOutOfEmail</fullName>
@@ -203,8 +211,18 @@
     </fields>
     <fields>
         <fullName>HomePhone</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Iniciales__c</fullName>
+        <externalId>false</externalId>
+        <formula>&apos;HUM&apos;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Iniciales</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Jigsaw</fullName>
@@ -267,7 +285,7 @@
     </fields>
     <fields>
         <fullName>MobilePhone</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -286,12 +304,12 @@
     </fields>
     <fields>
         <fullName>OtherAddress</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>OtherPhone</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>

@@ -114,7 +114,7 @@
             <name>Message_Sent</name>
             <type>Task</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <criteriaItems>
             <field>Account.NumberOfEmployees</field>
             <operation>greaterThan</operation>

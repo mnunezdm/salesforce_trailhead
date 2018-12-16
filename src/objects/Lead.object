@@ -166,7 +166,7 @@
     </fields>
     <fields>
         <fullName>Description</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -180,7 +180,7 @@
     </fields>
     <fields>
         <fullName>Fax</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -210,7 +210,7 @@
     </fields>
     <fields>
         <fullName>MobilePhone</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -317,12 +317,12 @@
     </fields>
     <fields>
         <fullName>Title</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>Website</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <listViews>

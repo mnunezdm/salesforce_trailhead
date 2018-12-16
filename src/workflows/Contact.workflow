@@ -82,7 +82,7 @@
     </rules>
     <rules>
         <fullName>Schedule Reset Birthday</fullName>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Contact.Schedule_Birthday_Update__c</field>
             <operation>equals</operation>
