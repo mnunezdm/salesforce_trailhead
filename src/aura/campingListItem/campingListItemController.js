@@ -6,5 +6,5 @@
         item.Packed__c = true
 
         component.set("v.item", item)
-	}
+    }
 })

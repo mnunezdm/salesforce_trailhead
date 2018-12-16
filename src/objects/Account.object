@@ -196,7 +196,7 @@
     </fields>
     <fields>
         <fullName>Description</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -205,13 +205,28 @@
     </fields>
     <fields>
         <fullName>Fax</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Hola__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>Hola</label>
+        <length>32</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Industry</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>IsExcludedFromRealign</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>Jigsaw</fullName>
@@ -301,7 +316,7 @@
     </fields>
     <fields>
         <fullName>Phone</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -373,7 +388,7 @@
     </fields>
     <fields>
         <fullName>ShippingAddress</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -386,7 +401,7 @@
     </fields>
     <fields>
         <fullName>Site</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
@@ -472,7 +487,7 @@
     </fields>
     <fields>
         <fullName>Website</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>

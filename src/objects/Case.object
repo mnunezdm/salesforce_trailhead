@@ -177,7 +177,7 @@
     </fields>
     <fields>
         <fullName>Description</fullName>
-        <encryptionScheme>ProbabilisticEncryption</encryptionScheme>
+        <encryptionScheme>None</encryptionScheme>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
