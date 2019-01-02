@@ -81,7 +81,7 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Active__c</fullName>
+        <fullName>Actives__c</fullName>
         <externalId>false</externalId>
         <label>Active</label>
         <required>false</required>

@@ -3,5 +3,5 @@
     <customSettingsType>List</customSettingsType>
     <enableFeeds>false</enableFeeds>
     <label>List Custom Setting Test</label>
-    <visibility>Public</visibility>
+    <visibility>False</visibility>
 </CustomObject>

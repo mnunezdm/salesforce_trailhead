@@ -56,7 +56,7 @@
         <type>ExternalLookup</type>
     </fields>
     <fields>
-        <fullName>orderLine__c</fullName>
+        <fullName>orderLines__c</fullName>
         <description>orderLine</description>
         <externalDeveloperName>orderLine</externalDeveloperName>
         <externalId>false</externalId>
