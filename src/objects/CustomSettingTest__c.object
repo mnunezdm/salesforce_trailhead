@@ -3,5 +3,5 @@
     <customSettingsType>Hierarchy</customSettingsType>
     <enableFeeds>false</enableFeeds>
     <label>Custom Setting Test</label>
-    <visibility>Public</visibility>
+    <visibility>Private</visibility>
 </CustomObject>
