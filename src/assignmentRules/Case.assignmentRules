@@ -5,7 +5,6 @@
         <active>true</active>
         <ruleEntry>
             <assignedTo>Booyah</assignedTo>
-            <assignedToType>Queue</assignedToType>
             <criteriaItems>
                 <field>Case.Description</field>
                 <operation>contains</operation>
