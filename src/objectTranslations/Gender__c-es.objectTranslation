@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Encryption test</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Encryption test</value>
+    </caseValues>
+    <fields>
+        <label><!-- Test DateTime --></label>
+        <name>Test_DateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test Date --></label>
+        <name>Test_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test TextLong --></label>
+        <name>Test_TextLong__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test URL --></label>
+        <name>Test_URL__c</name>
+    </fields>
+    <gender>Feminine</gender>
+</CustomObjectTranslation>

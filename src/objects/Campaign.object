@@ -62,6 +62,10 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>CampaignImageId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>CampaignMemberRecordTypeId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Lookup</type>

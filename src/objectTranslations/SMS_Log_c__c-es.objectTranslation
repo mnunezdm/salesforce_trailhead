@@ -13,6 +13,10 @@
         <name>from__c</name>
     </fields>
     <fields>
+        <label><!-- From --></label>
+        <name>froms__c</name>
+    </fields>
+    <fields>
         <label><!-- Message --></label>
         <name>msg__c</name>
     </fields>

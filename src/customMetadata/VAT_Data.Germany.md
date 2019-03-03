@@ -7,6 +7,10 @@
         <value xsi:type="xsd:string">Germany</value>
     </values>
     <values>
+        <field>Country_Names__c</field>
+        <value xsi:nil="true"/>
+    </values>
+    <values>
         <field>VAT_Rate__c</field>
         <value xsi:type="xsd:double">19.0</value>
     </values>

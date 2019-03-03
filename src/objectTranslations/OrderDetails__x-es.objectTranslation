@@ -18,6 +18,10 @@
         <name>orderLine__c</name>
     </fields>
     <fields>
+        <label><!-- orderLine --></label>
+        <name>orderLines__c</name>
+    </fields>
+    <fields>
         <label><!-- product --></label>
         <name>product__c</name>
     </fields>

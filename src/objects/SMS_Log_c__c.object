@@ -63,6 +63,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>froms__c</fullName>
+        <encryptionScheme>None</encryptionScheme>
+        <externalId>false</externalId>
+        <label>From</label>
+        <length>32</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>msg__c</fullName>
         <encryptionScheme>None</encryptionScheme>
         <externalId>false</externalId>

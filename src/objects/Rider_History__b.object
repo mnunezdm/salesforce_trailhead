@@ -75,6 +75,6 @@
         </fields>
         <label>Rider History Index</label>
     </indexes>
-    <label>Rider History</label>
+    <label>Rider Histories</label>
     <pluralLabel>Rider Histories</pluralLabel>
 </CustomObject>

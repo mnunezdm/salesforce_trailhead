@@ -528,6 +528,10 @@
         <fields>CAMPAIGN.START_DATE</fields>
         <relatedList>Campaign.Chapter__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Tower__c.State__c</relatedList>
+    </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

@@ -4,7 +4,7 @@
         <fullName>Retail Leads</fullName>
         <active>true</active>
         <ruleEntry>
-            <assignedTo>m.jones@notarealemail.com</assignedTo>
+            <assignedTo>integration.user@mycompany.com</assignedTo>
             <assignedToType>User</assignedToType>
             <criteriaItems>
                 <field>Lead.AnnualRevenue</field>

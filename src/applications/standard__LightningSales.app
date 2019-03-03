@@ -17,6 +17,7 @@
     <label>Sales</label>
     <navType>Standard</navType>
     <tabs>standard-home</tabs>
+    <tabs>App_Filtered_View</tabs>
     <tabs>standard-Opportunity</tabs>
     <tabs>standard-Lead</tabs>
     <tabs>standard-Task</tabs>

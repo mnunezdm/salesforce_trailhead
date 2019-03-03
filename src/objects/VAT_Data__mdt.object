@@ -11,6 +11,16 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Country_Names__c</fullName>
+        <externalId>false</externalId>
+        <fieldManageability>DeveloperControlled</fieldManageability>
+        <label>Country Name</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>VAT_Rate__c</fullName>
         <externalId>false</externalId>
         <fieldManageability>DeveloperControlled</fieldManageability>
@@ -20,7 +30,7 @@
         <scale>0</scale>
         <type>Percent</type>
     </fields>
-    <label>VAT Data</label>
+    <label>VAT Datas</label>
     <pluralLabel>VAT Datas</pluralLabel>
     <visibility>Public</visibility>
 </CustomObject>

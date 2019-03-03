@@ -71,6 +71,21 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>orderLines__c</fullName>
+        <description>orderLine</description>
+        <externalDeveloperName>orderLine</externalDeveloperName>
+        <externalId>false</externalId>
+        <isFilteringDisabled>false</isFilteringDisabled>
+        <isNameField>false</isNameField>
+        <isSortingDisabled>false</isSortingDisabled>
+        <label>orderLine</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>product__c</fullName>
         <description>product</description>
         <externalDeveloperName>product</externalDeveloperName>
