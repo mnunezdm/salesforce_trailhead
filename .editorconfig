@@ -4,3 +4,7 @@ trim_trailing_whitespace = true
 indent_size = 4
 tab_width = 4
 indent_style = space
+
+[*.{cls,js,html}
+
+indent_size = 2
