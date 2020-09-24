@@ -3,8 +3,8 @@ module.exports = {
     ...jestConfig,
     // add any custom configurations here
     moduleNameMapper: {
-        '^lightning/button$': '<rootDir>/main/test/jest-mocks/lightning/button',
-        '^thunder/hammerButton$': '<rootDir>/main/test/jest-mocks/thunder/hammerButton',
-        '^c/displayPanel$': '<rootDir>/main/test/jest-mocks/c/displayPanel',
+        '^lightning/button$': '<rootDir>/test/jest-mocks/lightning/button',
+        '^thunder/hammerButton$': '<rootDir>/test/jest-mocks/thunder/hammerButton',
+        '^c/displayPanel$': '<rootDir>/test/jest-mocks/c/displayPanel',
     }
 };
