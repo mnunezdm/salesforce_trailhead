@@ -10,7 +10,7 @@ export default class CallApexImperative extends LightningElement {
         //code to execute if related contacts are returned successfully
       })
       .catch(error => {
-        //code to execute if related contacts are not returned successfully
+        this.errors = reduceErrors(error); // code to execute if the promise is rejected
       });
   }
 }
