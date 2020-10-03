@@ -24,6 +24,7 @@ export default class BoatSearchResults extends LightningElement {
     { fieldName: 'Description__c', label: 'Description', type: 'text', editable: true, },
   ];
   boatTypeId = '';
+  @track boatTrack;
   @track boats = [];
   isLoading = false;
 
@@ -34,10 +35,11 @@ export default class BoatSearchResults extends LightningElement {
   messageContext;
 
   @wire(getBoats, { boatTypeId: '$boatTypeId' })
-  wiredBoats(result) {
-      this.boats = result.data;
-      if (result.error) {
-          this.error = result.error;
+  wiredBoats(boats) {
+      this.boatTrack = boats;
+      this.boats = boats.data || [];
+      if (boats.error) {
+          this.error = boats.error;
       }
       this.isLoading = false;
       this.notifyLoading(this.isLoading);
@@ -55,7 +57,7 @@ export default class BoatSearchResults extends LightningElement {
   // uses notifyLoading
   @api async refresh() {
     this.notifyLoading(true);
-    refreshApex(this.boats);
+    await refreshApex(this.boatTrack);
     this.notifyLoading(false);
   }
 
